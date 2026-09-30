@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>作品集 - 510的个人空间</title>
+  <meta name="description" content="510的技术项目作品展示">
+
+  <!-- Google Fonts 预连接优化 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- 引入字体 -->
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,900;1,9..144,400&family=Caveat:wght@400;700&family=Noto+Serif+SC:wght@700;900&family=Noto+Sans+SC:wght@400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- 样式表 -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="components/nav/nav.css">
+  <link rel="stylesheet" href="components/footer/footer.css">
+  <link rel="stylesheet" href="components/portfolio/portfolio.css">
+</head>
+<body>
+
+  <!-- 导航栏 -->
+  <nav>
+    <a href="index.html" class="nav-logo">MyWeb</a>
+    <div class="nav-links">
+      <a href="portfolio.html" class="active">作品集</a>
+      <a href="notes.html">学习笔记</a>
+      <a href="life.html">生活记录</a>
+      <a href="about.html">关于我</a>
+    </div>
+  </nav>
+
+  <!-- 页面标题区 -->
+  <section class="section">
+    <div class="container">
+      <div class="page-header reveal">
+        <h1 class="page-title">作品集</h1>
+        <p class="page-subtitle">展示我的技术项目，记录学习与成长的轨迹</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 项目网格区 -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="portfolio-grid">
+
+        <!-- 项目 1：个人网站开发 -->
+        <div class="portfolio-card reveal reveal-d1">
+          <h2 class="card-title">个人网站开发</h2>
+          <div class="card-tags">
+            <span class="tag tag-blue">HTML</span>
+            <span class="tag tag-blue">CSS</span>
+            <span class="tag tag-blue">JavaScript</span>
+          </div>
+          <p class="card-desc">
+            基于 Esther Design System 构建的个人网站，采用组件化架构和 ES6 模块化开发。
+            实现了响应式布局、Scroll Reveal 动画和多页面导航系统。
+          </p>
+          <a href="https://github.com/Wyl-510-www/MyWeb" target="_blank" class="card-link">查看项目 →</a>
+        </div>
+
+        <!-- 项目 2：前端学习笔记系统 -->
+        <div class="portfolio-card reveal reveal-d2">
+          <h2 class="card-title">前端学习笔记系统</h2>
+          <div class="card-tags">
+            <span class="tag tag-yellow">Vue.js</span>
+            <span class="tag tag-yellow">Markdown</span>
+            <span class="tag tag-yellow">Vite</span>
+          </div>
+          <p class="card-desc">
+            正在开发中的学习笔记管理系统，支持 Markdown 编辑、标签分类和全文搜索。
+            使用 Vue 3 Composition API 和 TypeScript 构建。
+          </p>
+          <a href="#" class="card-link card-link--disabled">开发中...</a>
+        </div>
+
+        <!-- 项目 3：待添加项目 -->
+        <div class="portfolio-card reveal reveal-d3">
+          <h2 class="card-title">React 组件库</h2>
+          <div class="card-tags">
+            <span class="tag tag-red">React</span>
+            <span class="tag tag-red">TypeScript</span>
+            <span class="tag tag-red">Storybook</span>
+          </div>
+          <p class="card-desc">
+            计划中的 React 组件库项目，基于 Esther Design System 设计规范，
+            提供可复用的 UI 组件和完整的文档示例。
+          </p>
+          <a href="#" class="card-link card-link--disabled">筹备中...</a>
+        </div>
+
+        <!-- 项目 4：全栈应用 -->
+        <div class="portfolio-card reveal reveal-d4">
+          <h2 class="card-title">全栈博客应用</h2>
+          <div class="card-tags">
+            <span class="tag tag-blue">Node.js</span>
+            <span class="tag tag-yellow">Express</span>
+            <span class="tag tag-red">MongoDB</span>
+          </div>
+          <p class="card-desc">
+            学习计划中的全栈项目，包含用户认证、文章发布、评论系统等功能。
+            前端使用 React，后端使用 Node.js + Express。
+          </p>
+          <a href="#" class="card-link card-link--disabled">计划中...</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-credits">MyWeb © 2026 · Powered by Esther Design System</p>
+    </div>
+  </footer>
+
+  <!-- 脚本 -->
+  <script type="module" src="scripts/main.js"></script>
+
+  <!-- © ESTHER不二 esthersjw/esther-design-system CC BY-NC 4.0 -->
+</body>
+</html>
