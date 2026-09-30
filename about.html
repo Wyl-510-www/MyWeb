@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>关于我 - 510的个人空间</title>
+  <meta name="description" content="了解510的背景、技能和联系方式">
+
+  <!-- Google Fonts 预连接优化 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- 引入字体 -->
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,900;1,9..144,400&family=Caveat:wght@400;700&family=Noto+Serif+SC:wght@700;900&family=Noto+Sans+SC:wght@400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- 样式表 -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="components/nav/nav.css">
+  <link rel="stylesheet" href="components/footer/footer.css">
+  <link rel="stylesheet" href="css/about.css">
+</head>
+<body>
+
+  <!-- 导航栏 -->
+  <nav>
+    <a href="index.html" class="nav-logo">MyWeb</a>
+    <div class="nav-links">
+      <a href="portfolio.html">作品集</a>
+      <a href="notes.html">学习笔记</a>
+      <a href="life.html">生活记录</a>
+      <a href="about.html" class="active">关于我</a>
+    </div>
+  </nav>
+
+  <!-- 个人简介区域 -->
+  <section class="about-intro section">
+    <div class="container">
+      <div class="intro-grid">
+        <!-- 头像卡片 -->
+        <div class="intro-avatar reveal">
+          <img src="assets/avatar.jpg" alt="510的头像" class="avatar-img">
+        </div>
+
+        <!-- 个人简介卡片 -->
+        <div class="intro-content reveal reveal-d1">
+          <div class="magazine-card">
+            <h1 class="card-title">你好，我是 510</h1>
+            <p class="card-desc">
+              一名<span class="hl-yellow">前端开发学习者</span>，目前就读于某高校计算机相关专业。
+              热爱编程，享受将设计变为现实的过程。
+            </p>
+            <p class="card-desc">
+              正在学习现代前端技术栈（Vue、React、TypeScript），
+              希望通过这个个人网站记录学习历程、沉淀技术经验、分享生活感悟。
+            </p>
+          </div>
+
+          <!-- 个人 Slogan -->
+          <div class="quote-highlight reveal reveal-d2">
+            <span class="quote-title">持续学习，真实记录，不断成长</span>
+            <p class="quote-desc">用代码构建世界，用文字记录思考</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 能力象限展示 -->
+  <section class="about-skills section section--alt">
+    <div class="container">
+      <h2 class="section-title reveal">技能与能力</h2>
+
+      <div class="skills-grid">
+        <!-- 开发能力 -->
+        <div class="icon-card reveal reveal-d1">
+          <div class="card-icon-area card-icon-area--blue">💻</div>
+          <div class="card-content">
+            <h3 class="card-title">开发能力</h3>
+            <p class="card-desc">前端技术栈</p>
+            <div class="skill-tags">
+              <span class="tag tag--blue">HTML/CSS</span>
+              <span class="tag tag--blue">JavaScript</span>
+              <span class="tag tag--blue">Vue.js</span>
+              <span class="tag tag--blue">Git</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 设计能力 -->
+        <div class="icon-card reveal reveal-d2">
+          <div class="card-icon-area card-icon-area--yellow">🎨</div>
+          <div class="card-content">
+            <h3 class="card-title">设计能力</h3>
+            <p class="card-desc">UI/UX 与视觉设计</p>
+            <div class="skill-tags">
+              <span class="tag tag--yellow">Figma</span>
+              <span class="tag tag--yellow">原型设计</span>
+              <span class="tag tag--yellow">视觉规范</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 学习能力 -->
+        <div class="icon-card reveal reveal-d3">
+          <div class="card-icon-area card-icon-area--blue">📚</div>
+          <div class="card-content">
+            <h3 class="card-title">学习能力</h3>
+            <p class="card-desc">正在学习的新技术</p>
+            <div class="skill-tags">
+              <span class="tag tag--blue">React</span>
+              <span class="tag tag--blue">TypeScript</span>
+              <span class="tag tag--blue">Node.js</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 其他能力 -->
+        <div class="icon-card reveal reveal-d4">
+          <div class="card-icon-area card-icon-area--red">🛠️</div>
+          <div class="card-content">
+            <h3 class="card-title">其他能力</h3>
+            <p class="card-desc">工具与协作</p>
+            <div class="skill-tags">
+              <span class="tag tag--red">VS Code</span>
+              <span class="tag tag--red">Notion</span>
+              <span class="tag tag--red">团队协作</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 联系方式区域 -->
+  <section class="about-contact section">
+    <div class="container">
+      <h2 class="section-title reveal">联系方式</h2>
+      <p class="section-subtitle reveal">欢迎交流讨论，期待与你连接</p>
+
+      <div class="contact-grid">
+        <!-- GitHub -->
+        <div class="tag-card reveal reveal-d1">
+          <span class="card-pill card-pill--blue">开发平台</span>
+          <h3 class="card-title">GitHub</h3>
+          <p class="card-desc">查看我的开源项目和代码仓库</p>
+          <a href="https://github.com/Wyl-510-www" target="_blank" class="contact-link">访问主页 →</a>
+        </div>
+
+        <!-- 邮箱 -->
+        <div class="tag-card reveal reveal-d2">
+          <span class="card-pill card-pill--yellow">联系方式</span>
+          <h3 class="card-title">电子邮箱</h3>
+          <p class="card-desc">商务合作、技术交流请发送邮件</p>
+          <a href="mailto:504424637@qq.com" class="contact-link">发送邮件 →</a>
+        </div>
+
+        <!-- 小红书 -->
+        <div class="tag-card reveal reveal-d3">
+          <span class="card-pill card-pill--red">社交媒体</span>
+          <h3 class="card-title">小红书</h3>
+          <p class="card-desc">分享生活日常和学习笔记</p>
+          <a href="https://xhslink.cn/o/3dBs2IMNfpl" target="_blank" class="contact-link">关注我 →</a>
+        </div>
+      </div>
+
+      <!-- CTA 按钮 -->
+      <div class="cta-wrapper reveal reveal-d4">
+        <a href="mailto:504424637@qq.com" class="cta-button">联系我</a>
+        <a href="index.html" class="cta-button cta-button--outline">返回首页</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-credits">MyWeb © 2026 · Powered by Esther Design System</p>
+    </div>
+  </footer>
+
+  <!-- 脚本 -->
+  <script type="module" src="scripts/main.js"></script>
+
+  <!-- © ESTHER不二 esthersjw/esther-design-system CC BY-NC 4.0 -->
+</body>
+</html>

@@ -6,17 +6,29 @@
 :root {
   /* 主色 - 蓝色系 */
   --color-primary: #3457B8;      /* 夜空钴蓝 - 标题、链接、主按钮 */
+  --blue: #3457B8;
 
   /* 强调色 - 黄色系 */
   --color-accent: #FFD646;       /* 星光暖黄 - CTA、高亮、徽章 */
+  --yellow: #FFD646;
 
   /* 点缀色 - 红色系 */
   --color-highlight: #E25555;    /* 斗篷砖红 - 标签、提醒、重要标记 */
+  --red: #E25555;
 
   /* 背景色 */
-  --color-bg: #f6f2e5;          /* 奶云米白 - 主背景 */
+  --color-bg: #fefcf6;          /* 品牌暖底 - 主背景 */
+  --cream-dark: #faf6eb;        /* 深奶油色 - 交替区块背景 */
 
   /* 文字色 */
   --color-text: #2D2D2D;        /* 深灰 - 正文文字 */
   --color-white: #FFFFFF;       /* 纯白 - 卡片背景 */
+  --ink: #2D2D2D;
+  --ink-light: #666666;
+}
+
+/* 文本选中高亮 */
+::selection {
+  background: var(--yellow);
+  color: var(--ink);
 }
