@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>无标题 - 510 的学习笔记</title>
+
+  <!-- Google Fonts 预连接优化 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- 引入字体 -->
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,900;1,9..144,400&family=Caveat:wght@400;700&family=Noto+Serif+SC:wght@700;900&family=Noto+Sans+SC:wght@400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- 样式表 -->
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../components/nav/nav.css">
+  <link rel="stylesheet" href="../components/footer/footer.css">
+  <link rel="stylesheet" href="../css/note-detail.css">
+</head>
+<body>
+
+  <!-- 阅读进度条 -->
+  <div class="reading-progress" id="reading-progress"></div>
+
+  <!-- 导航栏 -->
+  <nav>
+    <span class="nav-logo">MyWeb</span>
+    <div class="nav-links">
+      <a href="../portfolio.html">作品集</a>
+      <a href="../notes.html">学习笔记</a>
+      <a href="../life.html">生活记录</a>
+      <a href="../about.html">关于我</a>
+    </div>
+  </nav>
+
+  <!-- 文章内容 -->
+  <article class="note-article">
+    <div class="container">
+      <!-- 文章头部 -->
+      <header class="note-header">
+        <h1 class="note-title">无标题</h1>
+        <div class="note-meta">
+          <span class="note-date">📅 2026-09-30</span>
+          <span class="note-reading-time">⏱️ 5 分钟</span>
+        </div>
+        <div class="note-tags">
+          
+        </div>
+        <a href="https://github.com/Wyl-510-www/MyWeb/blob/main/content/notes/sdd.md" target="_blank" class="note-source-link">📄 查看源文件</a>
+      </header>
+
+      <!-- 文章正文 -->
+      <div class="note-content">
+        <p>规范驱动开发</p>
+<p>项目层面指定宪法 “constitution”，定义不可变标准。然后进行特性迭代循环</p>
+<p>每个循环都在独立的分支上面进行规划、实现、验证功能。</p>
+<p>在特性之间保持干净环境 减少切换负担。</p>
+<p>这种工作流同时适用于新建项目和改造项目！</p>
+<h1>新建项目</h1>
+<p>在新的项目中，你通过与智能体的对话，来制定这份项目宪章；在改造项目中，需要处理现有的代码库，你将依据现有的代码库，生成项目宪章。</p>
+<p>Constitution包含:</p>
+<p>Mission.md</p>
+<p>Tech Stack.md</p>
+<p>RoadMap.md</p>
+<p>!image.png</p>
+<p>!image.png</p>
+<p>首先，创建项目的宪法。<br>We are writing AgentClinic, a place for AI agents to get relief from their humans. Look in the README.md for input from stakeholders.<br>Let&#39;s create a &quot;constitution&quot; in a specs directory:</p>
+<p><code>mission.md</code></p>
+<p><code>tech-stack.md</code></p>
+<p><code>roadmap.md</code> for high-level implementation order, in very small phases of work.</p>
+<p>Important: You <em>must</em> use your AskUserQuestion tool, grouped on these 3, before writing to disk.</p>
+<p>其次，清空上下文，为第一阶段的任务制定计划。<br>Find the next phase on specs/roadmap.md and make a branch, ask me about the feature spec.<br>Create:</p>
+<ul>
+<li>A new directory YYYY-MM-DD-feature-name under specs for this feature work</li>
+<li>In there<br>-‘plan.md&#39; as a series of numbered task groups<br>-‘requirements.md ’for the scope, decisions, context</li>
+<li>‘validation.md’ for how to know the implementation succeeded and can be merged</li>
+</ul>
+<p>Refer to specs/mission.md and specs/tech-stack.md for guidance.<br>Important: You <em>must</em> use your AskUserQuestion tool, grouped on these 5, before writing to  disk.</p>
+<p>然后，<code>implement the remaining task groups</code> ,正式开启第一阶段的任务。完成之后，要同步roadmap的进度、已经第一阶段计划中validation的进度。</p>
+<p>接着，观察效果，发现与自己预期不符合的地方，和agent进行交流，进行修改。这一过程称之为‘人类在环’。</p>
+<p>!image.png</p>
+<p>I have the full diff. Spawing three reviewers in parallel.深度审核让代理有更多空间思考变更，并通过子代理避免污染主代理的上下文窗口。</p>
+<p>针对现有规格给出指导.把这个最小的产品作为宪章与功能规格的极限测试，如果现在的结果偏理论预期目标，那么我们必须负责地重新规划，纠正让智能体误导的原因。</p>
+<p>Go through the features on specs/roadmap.md, make a mvp branch,and ask me about the features specs needed to complete an mvp.<br>Create :</p>
+<ul>
+<li>A new directory under specs for this feature work</li>
+<li>In there:<ul>
+<li><ul>
+<li>‘plan.md’ for this task list</li>
+</ul>
+</li>
+<li><ul>
+<li>‘requirements.md’ for the scope,decisions,context</li>
+</ul>
+</li>
+<li><ul>
+<li>‘validation.md’ for how to know the implemention succeeded and can be merged</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Refer to specs/mission.md and  specs/tech-stack.md plus the existing feature specs for guidance.</p>
+<p>Important : You <em>must</em> use your AskUserQuestion tool, grouped on these 5, before writing to  disk.</p>
+<p>许多规格文件始于与智能体的反复对话，审查规格文件是一件必要的事情！！！！</p>
+<p>因为你会发现智能体为了填补空白而做出的错误假设。</p>
+<p>通过这个，智能体可以指出最小版本MVP在规划中存在的漏洞，我们可以将此次评估分享给相关方进行最小版本审查，然后合并或者归档该分支。</p>
+<h1>改造项目</h1>
+
+      </div>
+
+      <!-- 返回导航 -->
+      <div class="note-footer">
+        <a href="../notes.html" class="btn-back">← 返回笔记列表</a>
+      </div>
+    </div>
+  </article>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <h2 class="footer-title">联系我</h2>
+      <p class="footer-subtitle">欢迎交流讨论，期待与你连接</p>
+
+      <div class="numgrid">
+        <div class="numgrid-card" data-num="01">
+          <div class="numgrid-icon">📧</div>
+          <h4>邮箱</h4>
+          <p>504424637@qq.com</p>
+        </div>
+        <div class="numgrid-card" data-num="02">
+          <div class="numgrid-icon">📱</div>
+          <h4>小红书</h4>
+          <a href="https://xhslink.cn/o/3dBs2IMNfpl" target="_blank" class="numgrid-link">@510的小红书</a>
+        </div>
+      </div>
+
+      <p class="footer-credits">MyWeb © 2026 · Powered by Esther Design System</p>
+    </div>
+  </footer>
+
+  <!-- 阅读进度脚本 -->
+  <script src="../scripts/reading-progress.js"></script>
+
+  <!-- © ESTHER不二 esthersjw/esther-design-system CC BY-NC 4.0 -->
+</body>
+</html>
