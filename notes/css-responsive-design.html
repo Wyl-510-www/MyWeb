@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS 响应式设计技巧 - 510 的学习笔记</title>
+
+  <!-- Google Fonts 预连接优化 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- 引入字体 -->
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,900;1,9..144,400&family=Caveat:wght@400;700&family=Noto+Serif+SC:wght@700;900&family=Noto+Sans+SC:wght@400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- 样式表 -->
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../components/nav/nav.css">
+  <link rel="stylesheet" href="../components/footer/footer.css">
+  <link rel="stylesheet" href="../css/note-detail.css">
+</head>
+<body>
+
+  <!-- 阅读进度条 -->
+  <div class="reading-progress" id="reading-progress"></div>
+
+  <!-- 导航栏 -->
+  <nav>
+    <span class="nav-logo">MyWeb</span>
+    <div class="nav-links">
+      <a href="../portfolio.html">作品集</a>
+      <a href="../notes.html">学习笔记</a>
+      <a href="../life.html">生活记录</a>
+      <a href="../about.html">关于我</a>
+    </div>
+  </nav>
+
+  <!-- 文章内容 -->
+  <article class="note-article">
+    <div class="container">
+      <!-- 文章头部 -->
+      <header class="note-header">
+        <h1 class="note-title">CSS 响应式设计技巧</h1>
+        <div class="note-meta">
+          <span class="note-date">📅 2026-09-24</span>
+          <span class="note-reading-time">⏱️ 12 分钟</span>
+        </div>
+        <div class="note-tags">
+          <span class="tag">CSS</span><span class="tag">响应式</span>
+        </div>
+        <a href="https://github.com/Wyl-510-www/MyWeb/blob/main/content/notes/css-responsive-design.md" target="_blank" class="note-source-link">📄 查看源文件</a>
+      </header>
+
+      <!-- 文章正文 -->
+      <div class="note-content">
+        <h1>CSS 响应式设计技巧</h1>
+<p>响应式设计让网站在不同设备上都能提供良好的用户体验。本文将介绍 CSS 响应式设计的核心技术和实践经验。</p>
+<h2>1. 移动优先策略</h2>
+<p>从移动端开始设计，然后逐步增强到更大的屏幕。</p>
+<h3>基础设置</h3>
+<pre><code class="language-css">/* 基础移动端样式 */
+.container {
+  padding: 1rem;
+  width: 100%;
+}
+
+/* 平板 (768px 及以上) */
+@media (min-width: 768px) {
+  .container {
+    padding: 2rem;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+}
+
+/* 桌面 (1024px 及以上) */
+@media (min-width: 1024px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+/* 大屏桌面 (1280px 及以上) */
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+</code></pre>
+<blockquote>
+<p><strong>为什么移动优先？</strong> 移动端约束更多，从移动端开始可以确保核心功能在所有设备上可用。</p>
+</blockquote>
+<h2>2. Flexbox 实用技巧</h2>
+<p>Flexbox 是处理一维布局（行或列）的强大工具。</p>
+<h3>响应式导航栏</h3>
+<pre><code class="language-css">.nav {
+  display: flex;
+  flex-direction: column; /* 移动端垂直堆叠 */
+  gap: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .nav {
+    flex-direction: row; /* 桌面端水平排列 */
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+</code></pre>
+<h3>自适应卡片布局</h3>
+<pre><code class="language-css">.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.card {
+  flex: 1 1 300px; /* 最小宽度 300px，自动换行 */
+  min-width: 0; /* 防止 flex 子元素溢出 */
+}
+</code></pre>
+<p><strong>关键属性解释</strong>：</p>
+<ul>
+<li><code>flex: 1 1 300px</code> = <code>flex-grow: 1</code> <code>flex-shrink: 1</code> <code>flex-basis: 300px</code></li>
+<li>卡片会尽量占据空间，但最小保持 300px</li>
+</ul>
+<h3>垂直居中</h3>
+<pre><code class="language-css">.center-content {
+  display: flex;
+  justify-content: center; /* 水平居中 */
+  align-items: center;     /* 垂直居中 */
+  min-height: 100vh;
+}
+</code></pre>
+<h2>3. Grid 布局实战</h2>
+<p>Grid 是处理二维布局（行和列）的最佳选择。</p>
+<h3>响应式网格</h3>
+<pre><code class="language-css">.grid {
+  display: grid;
+  gap: 1.5rem;
+  
+  /* 移动端：1 列 */
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    /* 平板：2 列 */
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    /* 桌面：3 列 */
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+</code></pre>
+<h3>自动适应网格（无需媒体查询）</h3>
+<pre><code class="language-css">.auto-grid {
+  display: grid;
+  gap: 1rem;
+  
+  /* 自动填充，每列最小 250px，最大 1fr */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+</code></pre>
+<p><strong><code>auto-fit</code> vs <code>auto-fill</code></strong>：</p>
+<ul>
+<li><code>auto-fit</code>：列会拉伸填满容器</li>
+<li><code>auto-fill</code>：保持列宽，可能留有空白</li>
+</ul>
+<h3>复杂布局示例</h3>
+<pre><code class="language-css">.layout {
+  display: grid;
+  gap: 1rem;
+  grid-template-areas:
+    &quot;header&quot;
+    &quot;main&quot;
+    &quot;sidebar&quot;
+    &quot;footer&quot;;
+}
+
+@media (min-width: 1024px) {
+  .layout {
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas:
+      &quot;header  header&quot;
+      &quot;main    sidebar&quot;
+      &quot;footer  footer&quot;;
+  }
+}
+
+.header  { grid-area: header; }
+.main    { grid-area: main; }
+.sidebar { grid-area: sidebar; }
+.footer  { grid-area: footer; }
+</code></pre>
+<h2>4. 现代媒体查询技巧</h2>
+<h3>使用逻辑运算符</h3>
+<pre><code class="language-css">/* 平板横屏 */
+@media (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
+  .content {
+    font-size: 1.1rem;
+  }
+}
+</code></pre>
+<h3>针对高分辨率屏幕</h3>
+<pre><code class="language-css">/* 视网膜屏幕 */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .logo {
+    background-image: url(&#39;logo@2x.png&#39;);
+    background-size: 200px 50px;
+  }
+}
+</code></pre>
+<h3>偏好设置查询</h3>
+<pre><code class="language-css">/* 深色模式 */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+  }
+}
+
+/* 减少动画（用户偏好） */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+</code></pre>
+<h2>5. 容器查询（Container Queries）</h2>
+<p>容器查询允许根据父容器尺寸应用样式，而不是视口尺寸。</p>
+<pre><code class="language-css">.card-container {
+  container-type: inline-size;
+  container-name: card;
+}
+
+.card {
+  padding: 1rem;
+}
+
+/* 当容器宽度 &gt;= 400px 时 */
+@container card (min-width: 400px) {
+  .card {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 1rem;
+  }
+}
+</code></pre>
+<blockquote>
+<p><strong>注意</strong>：容器查询是较新的特性，使用前检查浏览器兼容性。</p>
+</blockquote>
+<h2>6. 响应式字体</h2>
+<h3>使用 clamp() 函数</h3>
+<pre><code class="language-css">.heading {
+  /* 最小 1.5rem，理想 4vw，最大 3rem */
+  font-size: clamp(1.5rem, 4vw, 3rem);
+}
+
+.text {
+  /* 最小 1rem，理想 2.5vw，最大 1.25rem */
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+}
+</code></pre>
+<h3>字体缩放系统</h3>
+<pre><code class="language-css">:root {
+  --font-scale: 1.2; /* 字体缩放比例 */
+  --base-font-size: 1rem;
+}
+
+body {
+  font-size: var(--base-font-size);
+}
+
+h1 {
+  font-size: calc(var(--base-font-size) * var(--font-scale) * var(--font-scale) * var(--font-scale));
+}
+
+h2 {
+  font-size: calc(var(--base-font-size) * var(--font-scale) * var(--font-scale));
+}
+
+h3 {
+  font-size: calc(var(--base-font-size) * var(--font-scale));
+}
+</code></pre>
+<h2>7. 常见陷阱和解决方案</h2>
+<h3>图片响应式</h3>
+<pre><code class="language-css">/* ✅ 让图片适应容器 */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block; /* 避免底部空隙 */
+}
+
+/* 使用 object-fit 控制裁剪 */
+.avatar {
+  width: 100px;
+  height: 100px;
+  object-fit: cover; /* 裁剪填充 */
+}
+</code></pre>
+<h3>避免水平滚动</h3>
+<pre><code class="language-css">/* ❌ 可能导致溢出 */
+.box {
+  width: 500px;
+}
+
+/* ✅ 使用最大宽度 */
+.box {
+  max-width: 500px;
+  width: 100%;
+}
+</code></pre>
+<h3>点击目标大小（移动端）</h3>
+<pre><code class="language-css">/* ✅ 确保可点击区域至少 44x44px */
+.button {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0.75rem 1.5rem;
+}
+</code></pre>
+<h2>响应式设计检查清单</h2>
+<ul>
+<li><input disabled="" type="checkbox"> 使用 viewport meta 标签：<code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;</code></li>
+<li><input disabled="" type="checkbox"> 采用移动优先的媒体查询策略</li>
+<li><input disabled="" type="checkbox"> 图片使用 <code>max-width: 100%</code> 和 <code>height: auto</code></li>
+<li><input disabled="" type="checkbox"> 点击目标至少 44x44px</li>
+<li><input disabled="" type="checkbox"> 测试常见断点：320px、768px、1024px、1280px</li>
+<li><input disabled="" type="checkbox"> 使用相对单位（rem、em、%）而非固定像素</li>
+<li><input disabled="" type="checkbox"> 考虑触摸手势和悬停状态差异</li>
+<li><input disabled="" type="checkbox"> 测试横屏和竖屏方向</li>
+</ul>
+<h2>总结</h2>
+<p>响应式设计的核心：</p>
+<ul>
+<li><strong>移动优先</strong>：从小屏开始，逐步增强</li>
+<li><strong>Flexbox</strong>：一维布局的首选</li>
+<li><strong>Grid</strong>：二维布局的最佳工具</li>
+<li><strong>媒体查询</strong>：根据设备特性调整样式</li>
+<li><strong>相对单位</strong>：使用 rem、em、% 而非固定 px</li>
+</ul>
+<p>掌握这些技巧，你就能创建在任何设备上都表现出色的网站。</p>
+
+      </div>
+
+      <!-- 返回导航 -->
+      <div class="note-footer">
+        <a href="../notes.html" class="btn-back">← 返回笔记列表</a>
+      </div>
+    </div>
+  </article>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <h2 class="footer-title">联系我</h2>
+      <p class="footer-subtitle">欢迎交流讨论，期待与你连接</p>
+
+      <div class="numgrid">
+        <div class="numgrid-card" data-num="01">
+          <div class="numgrid-icon">📧</div>
+          <h4>邮箱</h4>
+          <p>504424637@qq.com</p>
+        </div>
+        <div class="numgrid-card" data-num="02">
+          <div class="numgrid-icon">📱</div>
+          <h4>小红书</h4>
+          <a href="https://xhslink.cn/o/3dBs2IMNfpl" target="_blank" class="numgrid-link">@510的小红书</a>
+        </div>
+      </div>
+
+      <p class="footer-credits">MyWeb © 2026 · Powered by Esther Design System</p>
+    </div>
+  </footer>
+
+  <!-- 阅读进度脚本 -->
+  <script src="../scripts/reading-progress.js"></script>
+
+  <!-- © ESTHER不二 esthersjw/esther-design-system CC BY-NC 4.0 -->
+</body>
+</html>

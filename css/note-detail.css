@@ -1,0 +1,384 @@
+/**
+ * 笔记详情页样式
+ * 应用 Esther Design System 组件
+ */
+
+/* ==================== 阅读进度条 ==================== */
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--blue), var(--yellow));
+  z-index: 1000;
+  transition: width 0.1s ease;
+}
+
+/* ==================== 文章容器 ==================== */
+.note-article {
+  padding: 80px 0 60px;
+  background: var(--color-bg);
+}
+
+.note-article .container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ==================== 文章头部 ==================== */
+.note-header {
+  margin-bottom: 48px;
+  padding-bottom: 32px;
+  border-bottom: 2px solid var(--cream-dark);
+}
+
+/* 标题 - 阴影标题样式 */
+.note-title {
+  font-family: 'Fraunces', 'Noto Serif SC', serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 900;
+  line-height: 1.2;
+  color: var(--ink);
+  margin-bottom: 24px;
+  text-shadow:
+    3px 3px 0 var(--yellow),
+    6px 6px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* 元信息 */
+.note-meta {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 16px;
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 0.9rem;
+  color: var(--ink-light);
+}
+
+/* 标签 */
+.note-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.note-tags .tag {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  font-family: 'Noto Sans SC', sans-serif;
+  background: var(--blue);
+  color: white;
+  transition: transform 0.2s ease;
+}
+
+.note-tags .tag:nth-child(2n) {
+  background: var(--yellow);
+  color: var(--ink);
+}
+
+.note-tags .tag:nth-child(3n) {
+  background: var(--red);
+  color: white;
+}
+
+.note-tags .tag:hover {
+  transform: translateY(-2px);
+}
+
+/* 源文件链接 */
+.note-source-link {
+  display: inline-block;
+  font-size: 0.9rem;
+  color: var(--blue);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.note-source-link:hover {
+  border-bottom-color: var(--blue);
+}
+
+/* ==================== 文章正文 ==================== */
+.note-content {
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--ink);
+}
+
+.note-content > * + * {
+  margin-top: 1.5em;
+}
+
+/* 段落 */
+.note-content p {
+  margin-bottom: 1.5em;
+}
+
+/* 标题样式 */
+.note-content h2 {
+  font-family: 'Fraunces', 'Noto Serif SC', serif;
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: var(--ink);
+  margin-top: 2em;
+  margin-bottom: 0.8em;
+  padding-bottom: 0.5em;
+  border-bottom: 3px solid var(--yellow);
+}
+
+.note-content h3 {
+  font-family: 'Fraunces', 'Noto Serif SC', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-top: 1.8em;
+  margin-bottom: 0.6em;
+}
+
+.note-content h4 {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+/* 链接样式 - 波浪下划线 */
+.note-content a {
+  color: var(--blue);
+  text-decoration: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 4'%3E%3Cpath fill='none' stroke='%233457B8' d='M0 3.5c5 0 5-3 10-3s5 3 10 3'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-position: 0 100%;
+  background-size: 20px 4px;
+  padding-bottom: 2px;
+  transition: background-position 0.3s ease;
+}
+
+.note-content a:hover {
+  background-position: 0 90%;
+}
+
+/* 列表样式 */
+.note-content ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.note-content ul li {
+  position: relative;
+  padding-left: 1.8em;
+  margin-bottom: 0.8em;
+}
+
+.note-content ul li::before {
+  content: '▸';
+  position: absolute;
+  left: 0.5em;
+  color: var(--blue);
+  font-weight: bold;
+}
+
+.note-content ol {
+  padding-left: 1.8em;
+  counter-reset: list-counter;
+}
+
+.note-content ol li {
+  position: relative;
+  margin-bottom: 0.8em;
+  counter-increment: list-counter;
+}
+
+.note-content ol li::marker {
+  color: var(--blue);
+  font-weight: bold;
+}
+
+/* 代码块 - Mac 窗口样式 */
+.note-content pre {
+  position: relative;
+  padding: 40px 20px 20px;
+  background: #1e1e1e;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 2em 0;
+}
+
+.note-content pre::before {
+  content: '';
+  position: absolute;
+  top: 12px;
+  left: 16px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ff5f56;
+  box-shadow:
+    20px 0 0 #ffbd2e,
+    40px 0 0 #27c93f;
+}
+
+.note-content code {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.9em;
+}
+
+.note-content pre code {
+  color: #d4d4d4;
+  background: transparent;
+  padding: 0;
+}
+
+.note-content p code,
+.note-content li code {
+  background: var(--cream-dark);
+  color: var(--red);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+/* 引用块 - 重点笔记样式 */
+.note-content blockquote {
+  position: relative;
+  padding: 24px 24px 24px 60px;
+  margin: 2em 0;
+  background: var(--cream-dark);
+  border-radius: 8px;
+  font-style: italic;
+}
+
+.note-content blockquote::before {
+  content: '"';
+  position: absolute;
+  left: 16px;
+  top: 10px;
+  font-family: 'Fraunces', serif;
+  font-size: 4rem;
+  font-weight: 900;
+  color: var(--yellow);
+  line-height: 1;
+}
+
+.note-content blockquote p {
+  margin: 0;
+  color: var(--ink);
+  font-size: 1.1rem;
+}
+
+/* 水平线 */
+.note-content hr {
+  border: none;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--yellow), transparent);
+  margin: 3em 0;
+}
+
+/* 图片 */
+.note-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 2em 0;
+}
+
+/* 表格 */
+.note-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2em 0;
+}
+
+.note-content th,
+.note-content td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--cream-dark);
+}
+
+.note-content th {
+  font-weight: 700;
+  background: var(--cream-dark);
+  color: var(--ink);
+}
+
+/* ==================== 返回导航 ==================== */
+.note-footer {
+  margin-top: 60px;
+  padding-top: 40px;
+  border-top: 2px solid var(--cream-dark);
+  text-align: center;
+}
+
+.btn-back {
+  display: inline-block;
+  padding: 12px 32px;
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: white;
+  background: var(--blue);
+  border-radius: 8px;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-back:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(52, 87, 184, 0.3);
+}
+
+/* ==================== 响应式 ==================== */
+@media (max-width: 768px) {
+  .note-article {
+    padding: 60px 0 40px;
+  }
+
+  .note-title {
+    font-size: 1.8rem;
+    text-shadow:
+      2px 2px 0 var(--yellow),
+      4px 4px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .note-meta {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .note-content {
+    font-size: 1rem;
+  }
+
+  .note-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .note-content h3 {
+    font-size: 1.2rem;
+  }
+
+  .note-content pre {
+    padding: 35px 16px 16px;
+    font-size: 0.85rem;
+  }
+
+  .note-content blockquote {
+    padding: 20px 20px 20px 50px;
+  }
+
+  .note-content blockquote::before {
+    font-size: 3rem;
+    left: 12px;
+  }
+}

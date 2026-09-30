@@ -41,10 +41,10 @@ MyWeb 是一个纯静态个人网站，使用 [Esther Design System](https://git
 ```
 MyWeb/
 ├── index.html              # 首页（已组件化重构）
-├── portfolio.html          # 作品集（待开发）
-├── notes.html              # 学习笔记（待开发）
+├── portfolio.html          # 作品集页面
+├── notes.html              # 学习笔记列表页
 ├── life.html               # 生活记录（待开发）
-├── about.html              # 关于我（待开发）
+├── about.html              # 关于我页面
 ├── assets/
 │   ├── avatar.jpg          # 个人头像
 │   └── images/             # 图片资源
@@ -61,14 +61,23 @@ MyWeb/
 │       ├── footer.css      # 页脚样式
 │       └── footer.js       # 页脚交互逻辑（ES6 模块）
 ├── content/
-│   ├── notes/              # Markdown 笔记
+│   ├── notes/              # Markdown 笔记源文件
 │   └── life/               # 生活记录 Markdown
+├── notes/                  # 生成的笔记 HTML 页面
+├── notes-data.json         # 笔记列表数据
 ├── css/
 │   ├── variables.css       # 品牌色变量
 │   ├── reset.css           # CSS 重置（2026-09-30 新增）
-│   └── global.css          # 全局样式（2026-09-30 新增）
+│   ├── global.css          # 全局样式（2026-09-30 新增）
+│   ├── notes.css           # 笔记列表页样式
+│   └── note-detail.css     # 笔记详情页样式
 ├── scripts/
-│   └── main.js             # 主入口脚本（ES6 模块，2026-09-30 新增）
+│   ├── main.js             # 主入口脚本（ES6 模块，2026-09-30 新增）
+│   ├── build-notes.js      # 笔记构建脚本
+│   ├── notes-filter.js     # 笔记筛选逻辑
+│   ├── reading-progress.js # 阅读进度条
+│   └── templates/
+│       └── note-detail.html # 笔记详情页模板
 ├── esther-design-system-main/  # 设计系统资源
 │   ├── brand-dna.md
 │   ├── references/
@@ -127,6 +136,67 @@ MyWeb/
 2. **修改布局**：参考 `esther-design-system-main/references/layouts.md`
 3. **添加组件**：参考 `esther-design-system-main/references/components.md`
 
+## 学习笔记系统
+
+### 写作流程
+
+1. **创建 Markdown 文件**
+   
+   在 `content/notes/` 目录创建新的 `.md` 文件，文件名将作为 URL slug（例如 `javascript-performance.md` → `notes/javascript-performance.html`）
+
+2. **添加 frontmatter**
+   
+   在文件开头添加 YAML frontmatter：
+   
+   ```markdown
+   ---
+   title: "文章标题"
+   date: "2026-09-28"
+   tags: ["JavaScript", "性能优化"]
+   description: "简短描述，显示在列表页卡片上"
+   readingTime: "8 分钟"
+   ---
+   
+   # 文章标题
+   
+   正文内容...
+   ```
+
+3. **运行构建脚本**
+   
+   ```bash
+   npm run build:notes
+   # 或
+   node scripts/build-notes.js
+   ```
+   
+   脚本会：
+   - 读取 `content/notes/*.md` 文件
+   - 解析 frontmatter 和 Markdown 内容
+   - 使用 `scripts/templates/note-detail.html` 模板生成 HTML
+   - 输出到 `notes/` 目录
+   - 生成 `notes-data.json` 供列表页使用
+
+4. **预览效果**
+   
+   启动本地服务器后访问：
+   - 列表页：`http://localhost:8000/notes.html`
+   - 详情页：`http://localhost:8000/notes/<slug>.html`
+
+### 功能特性
+
+- **标签筛选**：点击标签按钮过滤笔记，支持 URL 参数 `?tag=JavaScript`
+- **阅读进度条**：详情页顶部显示滚动进度
+- **代码高亮**：支持 Markdown 代码块语法高亮（使用 Fira Code 字体）
+- **响应式设计**：适配桌面、平板、移动端
+- **源文件链接**：详情页头部提供 GitHub 源文件链接
+
+### 修改样式
+
+1. **修改品牌色**：编辑 `css/variables.css` 中的 CSS 变量
+2. **修改布局**：参考 `esther-design-system-main/references/layouts.md`
+3. **添加组件**：参考 `esther-design-system-main/references/components.md`
+
 ### 响应式断点
 
 - **桌面端**：> 900px（导航卡片 4 列）
@@ -169,10 +239,10 @@ MyWeb/
 ## 开发路线图
 
 - [x] **Phase 1: 环境准备** - 目录结构、配色系统、基础模板
-- [ ] **Phase 2: 首页开发** - Hero 区域、导航卡片、响应式布局
-- [ ] **Phase 3: 关于我页面** - 个人简介、技能展示、联系方式
-- [ ] **Phase 4: 作品集页面** - 项目展示、技术栈标签、成果链接
-- [ ] **Phase 5: 学习笔记系统** - Markdown 渲染、笔记列表、代码高亮
+- [x] **Phase 2: 首页开发** - Hero 区域、导航卡片、响应式布局
+- [x] **Phase 3: 关于我页面** - 个人简介、技能展示、联系方式
+- [x] **Phase 4: 作品集页面** - 项目展示、技术栈标签、成果链接
+- [x] **Phase 5: 学习笔记系统** - Markdown 渲染、笔记列表、代码高亮
 - [ ] **Phase 6: 生活记录系统** - 时间线布局、图片展示、日记卡片
 - [ ] **Phase 7: 优化和部署** - 性能优化、GitHub Pages 部署
 

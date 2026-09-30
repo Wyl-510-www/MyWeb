@@ -91,28 +91,44 @@
 
 ---
 
-## Phase 5: 学习笔记系统
+## Phase 5: 学习笔记系统 ✅ **已完成 2026-09-30**
 **目标**：支持 Markdown 笔记展示和浏览
 
-### 4.1 Markdown 渲染方案选择
-- [ ] **方案一（推荐）**：Node.js 预渲染脚本
-  - 编写 `build-notes.js`：读取 `content/notes/*.md`
-  - 使用 `marked.js` 转换为 HTML
-  - 套用 Esther Design System 样式
-  - 生成静态 HTML 页面
-- [ ] **方案二**：客户端渲染
-  - 引入 `marked.js` 和 `Prism.js`
-  - 动态加载 Markdown 文件
-  - 前端解析渲染
+### 实施方案
+- [x] **Node.js 预渲染脚本**（已采用）
+  - 编写 `scripts/build-notes.js`：读取 `content/notes/*.md`
+  - 使用 `marked` 库转换为 HTML
+  - 使用 `gray-matter` 解析 frontmatter
+  - 生成静态 HTML 页面到 `notes/` 目录
+  - 导出 `notes-data.json` 供列表页使用
 
-### 4.2 笔记页面开发
-- [ ] 创建笔记列表页面（卡片网格布局）
-- [ ] 创建笔记详情模板（报纸排版/打字机风格）
-- [ ] 添加代码高亮（Mac 窗口/笔记本风格组件）
-- [ ] 支持笔记分类和标签展示
-- [ ] 添加返回列表导航
+### 实现功能
+- [x] 笔记列表页 (notes.html)
+  - Magazine 风格卡片网格布局
+  - 标签筛选功能（支持 URL 参数 `?tag=xxx`）
+  - 按日期倒序排序
+  - 响应式布局（桌面 3 列 / 平板 2 列 / 移动 1 列）
+  
+- [x] 笔记详情页
+  - Markdown 渲染（标题、段落、列表、代码块、引用）
+  - 阅读进度条（渐变蓝到黄，固定顶部）
+  - 代码块样式（Mac 窗口风格 + Fira Code 字体）
+  - 文章头部（标题、日期、阅读时间、标签、源文件链接）
+  - 返回按钮导航
+  
+- [x] 交互功能
+  - 标签点击筛选 (scripts/notes-filter.js)
+  - 阅读进度显示 (scripts/reading-progress.js)
+  - URL 参数支持
+  
+- [x] 样式系统
+  - css/notes.css（列表页）
+  - css/note-detail.css（详情页）
+  - 响应式断点：768px / 480px
 
-**预计时间**：6-8 小时
+**实际耗时**：约 12 小时  
+**提交记录**：待提交  
+**完成文档**：`specs/2026-09-30-phase5-notes/completion.md`
 
 ---
 

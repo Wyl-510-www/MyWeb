@@ -1,0 +1,306 @@
+/* ===================================
+   Notes List Page Styles
+   =================================== */
+
+.notes-page {
+  padding-top: 100px;
+  padding-bottom: 60px;
+  min-height: calc(100vh - 200px);
+}
+
+.notes-page .container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ===================================
+   Page Header
+   =================================== */
+
+.notes-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.notes-title {
+  font-family: 'Noto Serif SC', serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 900;
+  color: var(--ink);
+  margin-bottom: 1rem;
+  text-shadow: 3px 3px 0 var(--yellow);
+}
+
+.notes-subtitle {
+  font-size: 1.1rem;
+  color: var(--ink-light);
+  font-weight: 400;
+}
+
+/* ===================================
+   Tag Filter
+   =================================== */
+
+.tag-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 48px;
+}
+
+.tag-btn {
+  padding: 10px 20px;
+  border: 2px solid var(--blue);
+  border-radius: 50px;
+  background: transparent;
+  color: var(--blue);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tag-btn:hover {
+  background: var(--blue);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+.tag-btn.active {
+  background: var(--blue);
+  color: var(--white);
+}
+
+/* ===================================
+   Notes Grid
+   =================================== */
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 32px;
+}
+
+/* ===================================
+   Note Card (Magazine Style)
+   =================================== */
+
+.note-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.note-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.note-card.hidden {
+  display: none;
+}
+
+.note-card-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: var(--ink);
+  margin-bottom: 16px;
+  line-height: 1.3;
+}
+
+.note-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+  font-size: 0.85rem;
+  color: var(--ink-light);
+}
+
+.note-card-date {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.note-card-reading-time {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.note-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.note-card-tag {
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.note-card-tag:hover {
+  transform: scale(1.05);
+}
+
+.note-card-tag:nth-child(3n+1) {
+  background: rgba(43, 127, 216, 0.1);
+  color: var(--blue);
+  border: 1px solid rgba(43, 127, 216, 0.3);
+}
+
+.note-card-tag:nth-child(3n+2) {
+  background: rgba(244, 215, 88, 0.2);
+  color: #b8930a;
+  border: 1px solid rgba(244, 215, 88, 0.5);
+}
+
+.note-card-tag:nth-child(3n+3) {
+  background: rgba(232, 74, 95, 0.1);
+  color: var(--red);
+  border: 1px solid rgba(232, 74, 95, 0.3);
+}
+
+.note-card-description {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--ink-light);
+  margin-bottom: 20px;
+}
+
+.note-card-link {
+  display: inline-block;
+  color: var(--blue);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.note-card-link::after {
+  content: ' →';
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+.note-card-link:hover::after {
+  transform: translateX(4px);
+}
+
+/* ===================================
+   Responsive Design
+   =================================== */
+
+@media (max-width: 1024px) {
+  .notes-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .notes-page {
+    padding-top: 80px;
+    padding-bottom: 40px;
+  }
+
+  .notes-page .container {
+    padding: 0 1.5rem;
+  }
+
+  .notes-header {
+    margin-bottom: 40px;
+  }
+
+  .notes-title {
+    font-size: 2.5rem;
+  }
+
+  .notes-subtitle {
+    font-size: 1rem;
+  }
+
+  .tag-filter {
+    gap: 10px;
+    margin-bottom: 36px;
+  }
+
+  .tag-btn {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+
+  .notes-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .note-card {
+    padding: 24px;
+  }
+
+  .note-card-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .notes-page .container {
+    padding: 0 1.25rem;
+  }
+
+  .notes-title {
+    font-size: 2rem;
+  }
+
+  .notes-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .note-card {
+    padding: 20px;
+  }
+
+  .note-card-title {
+    font-size: 1.35rem;
+    margin-bottom: 12px;
+  }
+
+  .note-card-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 10px;
+    font-size: 0.8rem;
+  }
+
+  .note-card-tags {
+    gap: 6px;
+    margin-bottom: 12px;
+  }
+
+  .note-card-tag {
+    padding: 5px 12px;
+    font-size: 0.75rem;
+  }
+
+  .note-card-description {
+    font-size: 0.9rem;
+    margin-bottom: 16px;
+  }
+}

@@ -1,7 +1,13 @@
 {
   "permissions": {
     "allow": [
-      "Bash(python *)"
+      "Bash(python *)",
+      "Bash(git commit *)",
+      "Bash(grep -E \"\\\\.\\(md|txt\\)$\")",
+      "Bash(node *)",
+      "Bash(curl -s http://localhost:8000/notes.html)",
+      "Bash(curl -s http://localhost:8000/notes/javascript-performance.html)",
+      "Bash(git add *)"
     ]
   }
 }
