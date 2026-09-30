@@ -8,6 +8,9 @@
       "Bash(curl -s http://localhost:8000/notes.html)",
       "Bash(curl -s http://localhost:8000/notes/javascript-performance.html)",
       "Bash(git add *)",
+      "Bash(git merge *)",
+      "Bash(git stash *)",
+      "Bash(curl -s http://localhost:8000/life.html)",
       "Bash(git checkout *)"
     ]
   }
