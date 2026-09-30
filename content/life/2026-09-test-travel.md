@@ -4,9 +4,9 @@ date: 2026-09-28
 tags: [旅行, 摄影, 日常]
 description: "秋天的海边，风很大，心情很好。记录这个美好的周末。"
 images:
-  - ../assets/images/life/test-travel/beach-01.jpg
-  - ../assets/images/life/test-travel/beach-02.jpg
-  - ../assets/images/life/test-travel/beach-03.jpg
+  - ../assets/images/life/test-travel/beach-01-large.jpg
+  - ../assets/images/life/test-travel/beach-02-large.jpg
+  - ../assets/images/life/test-travel/beach-03-large.jpg
 readingTime: "3 分钟"
 ---
 

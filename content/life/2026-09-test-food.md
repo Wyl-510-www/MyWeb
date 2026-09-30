@@ -4,8 +4,8 @@ date: 2026-09-22
 tags: [美食, 日常, 手作]
 description: "第一次尝试做曲奇饼干，虽然卖相不好，但味道还不错！"
 images:
-  - ../assets/images/life/test-food/cookie-01.jpg
-  - ../assets/images/life/test-food/cookie-02.jpg
+  - ../assets/images/life/test-food/cookie-01-large.jpg
+  - ../assets/images/life/test-food/cookie-02-large.jpg
 readingTime: "2 分钟"
 ---
 

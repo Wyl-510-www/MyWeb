@@ -4,9 +4,9 @@ date: 2026-09-29
 tags: [美食, 日常, 约会]
 description: "和最爱的人一起吃饭，看着面前的花束和美食，这就是幸福的模样。"
 images:
-  - ../assets/images/life/2026-09-restaurant/01.jpg
-  - ../assets/images/life/2026-09-restaurant/02.jpg
-  - ../assets/images/life/2026-09-restaurant/03.jpg
+  - ../assets/images/life/2026-09-restaurant/01-large.jpg
+  - ../assets/images/life/2026-09-restaurant/02-large.jpg
+  - ../assets/images/life/2026-09-restaurant/03-large.jpg
 readingTime: "2 分钟"
 ---
 
