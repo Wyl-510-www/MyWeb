@@ -1,30 +1,32 @@
 # MyWeb 实施路线图
 
-## Phase 1: 环境准备 ✅
+## Phase 1: 环境准备 ✅ **已完成 2026-09-29**
 **目标**：准备 Esther Design System 资源和品牌资产
 
-- [ ] 确认 `esther-design-system-main/` 目录完整性
-- [ ] 替换头像为自己的 `assets/avatar.jpg`（建议正方形，至少 400×400px）
-- [ ] 可选：修改品牌色（`brand-dna.md` + 模板 `:root` 变量）
-- [ ] 创建项目目录结构：
+- [x] 确认 `esther-design-system-main/` 目录完整性
+- [x] 替换头像为自己的 `assets/avatar.jpg`
+- [x] 确定品牌配色方案（A·原图核心配色）
+- [x] 创建项目目录结构：
   ```
   MyWeb/
-  ├── index.html              # 首页
-  ├── portfolio.html          # 作品集
-  ├── notes.html              # 学习笔记
-  ├── life.html               # 生活记录
-  ├── about.html              # 关于我
+  ├── index.html              # 首页（已创建）
   ├── assets/
-  │   ├── avatar.jpg
-  │   └── images/
+  │   ├── avatar.jpg          # ✅ 已就位
+  │   └── images/             # ✅ 已创建
   ├── content/
-  │   ├── notes/              # Markdown 笔记
-  │   └── life/               # 生活记录 Markdown
-  └── css/
-      └── custom.css          # 自定义样式（如需）
+  │   ├── notes/              # ✅ 已创建
+  │   └── life/               # ✅ 已创建
+  ├── css/
+  │   └── variables.css       # ✅ 品牌色变量
+  └── specs/                  # ✅ 规格文档
   ```
+- [x] 创建 `css/variables.css` 并定义品牌配色
+- [x] 创建 `index.html` 基础模板
+- [x] 编写项目 `README.md`
+- [x] 清理无用文件（index.js, qodana.yaml）
 
-**预计时间**：1 小时
+**实际耗时**：约 1.5 小时  
+**提交记录**：`47f93a4 feat: Phase 1 环境准备完成`
 
 ---
 

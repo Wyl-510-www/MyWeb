@@ -203,15 +203,15 @@ Phase 1 必须通过以下门禁才能进入 Phase 2：
 
 ### P0（必须通过）
 - [x] 目录结构完整
-- [ ] `index.html` 能在浏览器打开且样式正确
-- [ ] `css/variables.css` 包含 A 方案配色
-- [ ] 头像显示正常
-- [ ] `README.md` 记录完整
+- [x] `index.html` 能在浏览器打开且样式正确
+- [x] `css/variables.css` 包含 A 方案配色
+- [x] 头像显示正常
+- [x]`README.md` 记录完整
 
 ### P1（建议通过）
-- [ ] 响应式布局在三个断点正常工作
-- [ ] specs 文档齐全（requirements、plan、validation）
-- [ ] Git 提交信息清晰
+- [x] 响应式布局在三个断点正常工作
+- [x] specs 文档齐全（requirements、plan、validation）
+- [x] Git 提交信息清晰
 
 ### P2（可选）
 - [ ] 图片资源优化（Phase 7 再处理）
