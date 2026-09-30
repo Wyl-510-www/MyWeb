@@ -4,29 +4,42 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>510 - 个人空间</title>
+
+  <!-- Google Fonts 预连接优化 -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- 引入字体：Fraunces(英文衬线)、Caveat(手写)、Noto Serif SC(中文衬线)、Noto Sans SC(中文无衬线)、Fira Code(代码) -->
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,900;1,9..144,400&family=Caveat:wght@400;700&family=Noto+Serif+SC:wght@700;900&family=Noto+Sans+SC:wght@400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- 引入品牌配色变量文件 -->
   <link rel="stylesheet" href="css/variables.css">
+
   <style>
     /* === CSS变量 === */
     :root {
       --_esther-ds: "esthersjw-v1";
       /* 使用 variables.css 中的自定义配色 */
       --blue: var(--color-primary);
-      --blue-deep: #2C4690;
+      --blue-deep: hsl(223, 55%, 37%);
       --yellow: var(--color-accent);
-      --yellow-soft: #FFF3CD;
+      --yellow-soft: hsl(48, 100%, 90%);
       --red: var(--color-highlight);
       --cream: var(--color-bg);
-      --cream-dark: #f3efe4;
+      --cream-dark: hsl(43, 28%, 94%);
       --ink: var(--color-text);
-      --ink-light: #4A4A5A;
-      --ink-faint: #8A8A9A;
-      --dark-panel: #151821;
+      --ink-light: hsl(240, 11%, 29%);
+      --ink-faint: hsl(240, 7%, 58%);
+      --dark-panel: hsl(225, 23%, 11%);
+      --white: var(--color-white);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      overflow-x: hidden;
+      width: 100%;
+    }
 
     body {
       font-family: 'Noto Sans SC', -apple-system, 'PingFang SC', 'Helvetica Neue', sans-serif;
@@ -34,6 +47,9 @@
       line-height: 1.7;
       color: var(--ink);
       background: var(--cream);
+      overflow-x: hidden;
+      width: 100%;
+      position: relative;
     }
 
     ::selection {
@@ -163,7 +179,7 @@
       font-size: clamp(1.4rem, 3vw, 2.2rem);
     }
 
-    /* === 导航卡片 === */
+    /* === 导航卡片（3D翻转） === */
     .nav-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -171,31 +187,53 @@
       max-width: 1200px;
       margin: 0 auto;
     }
+    .nav-card-wrapper {
+      perspective: 1000px;
+      height: 280px;
+    }
     .nav-card {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.6s ease;
+      cursor: pointer;
+    }
+    .nav-card.flipped {
+      transform: rotateY(180deg);
+    }
+    .nav-card-front,
+    .nav-card-back {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
       background: var(--white);
       border-radius: 20px;
       padding: clamp(28px, 3vw, 40px);
-      position: relative;
-      overflow: hidden;
       box-shadow: 0 4px 24px rgba(0,0,0,.05);
-      transition: transform 0.3s ease;
-      text-decoration: none;
-      color: inherit;
-      display: block;
+      display: flex;
+      flex-direction: column;
     }
-    .nav-card:hover {
-      transform: translateY(-4px);
-    }
-    .nav-card::before {
+    .nav-card-front::before {
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0;
       height: 4px;
+      border-radius: 20px 20px 0 0;
     }
-    .nav-card:nth-child(1)::before { background: var(--blue); }
-    .nav-card:nth-child(2)::before { background: var(--yellow); }
-    .nav-card:nth-child(3)::before { background: var(--red); }
-    .nav-card:nth-child(4)::before { background: var(--blue); }
+    .nav-card-wrapper:nth-child(1) .nav-card-front::before { background: var(--red); }
+    .nav-card-wrapper:nth-child(2) .nav-card-front::before { background: var(--blue); }
+    .nav-card-wrapper:nth-child(3) .nav-card-front::before { background: var(--yellow); }
+    .nav-card-wrapper:nth-child(4) .nav-card-front::before { background: var(--ink-light); }
+
+    .nav-card-back {
+      transform: rotateY(180deg);
+      justify-content: center;
+    }
+    .nav-card-wrapper:nth-child(1) .nav-card-back { background: var(--red); color: var(--white); }
+    .nav-card-wrapper:nth-child(2) .nav-card-back { background: var(--blue); color: var(--white); }
+    .nav-card-wrapper:nth-child(3) .nav-card-back { background: var(--yellow); color: var(--ink); }
+    .nav-card-wrapper:nth-child(4) .nav-card-back { background: var(--ink-light); color: var(--white); }
 
     .nav-card-icon {
       width: 64px; height: 64px;
@@ -206,10 +244,10 @@
       justify-content: center;
       font-size: 1.8rem;
     }
-    .nav-card:nth-child(1) .nav-card-icon { background: rgba(52,87,184,0.08); }
-    .nav-card:nth-child(2) .nav-card-icon { background: rgba(255,214,70,0.15); }
-    .nav-card:nth-child(3) .nav-card-icon { background: rgba(226,85,85,0.08); }
-    .nav-card:nth-child(4) .nav-card-icon { background: rgba(52,87,184,0.08); }
+    .nav-card-wrapper:nth-child(1) .nav-card-icon { background: rgba(232,74,95,0.12); }
+    .nav-card-wrapper:nth-child(2) .nav-card-icon { background: rgba(43,127,216,0.12); }
+    .nav-card-wrapper:nth-child(3) .nav-card-icon { background: rgba(244,215,88,0.3); }
+    .nav-card-wrapper:nth-child(4) .nav-card-icon { background: rgba(74,74,90,0.15); }
 
     .nav-card-title {
       font-family: 'Noto Serif SC', serif;
@@ -222,13 +260,140 @@
       color: var(--ink-light);
       line-height: 1.7;
     }
-
-    /* === Footer === */
-    .footer {
-      padding: 2rem;
+    .nav-card-back .nav-card-desc {
+      color: inherit;
+      opacity: 0.9;
+    }
+    .nav-card-flip-hint {
+      font-size: 0.75rem;
+      opacity: 0.6;
+      margin-top: auto;
       text-align: center;
+    }
+    .nav-card-back-link {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.5rem 1.2rem;
+      background: rgba(255,255,255,0.2);
+      border-radius: 8px;
+      text-decoration: none;
+      color: inherit;
+      font-size: 0.85rem;
+      transition: background 0.3s ease;
+    }
+    .nav-card-wrapper:nth-child(3) .nav-card-back-link {
+      background: rgba(0,0,0,0.08);
+    }
+    .nav-card-back-link:hover {
+      background: rgba(255,255,255,0.3);
+    }
+    .nav-card-wrapper:nth-child(3) .nav-card-back-link:hover {
+      background: rgba(0,0,0,0.12);
+    }
+
+    /* 移动端禁用3D效果 */
+    @media (hover: none) {
+      .nav-card-wrapper {
+        height: auto;
+      }
+      .nav-card {
+        transform: none !important;
+        position: static;
+      }
+      .nav-card-front {
+        position: static;
+        backface-visibility: visible;
+      }
+      .nav-card-back {
+        display: none;
+      }
+      .nav-card-flip-hint {
+        display: none;
+      }
+    }
+
+    /* === Footer 堆叠卡片 === */
+    .footer {
+      padding: clamp(80px, 12vh, 120px) 2rem clamp(40px, 6vh, 60px);
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .footer .container {
+      width: 100%;
+      max-width: 1300px;
+    }
+    .footer-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--ink);
+    }
+    .footer-subtitle {
+      font-size: 0.95rem;
+      color: var(--ink-light);
+      margin-bottom: 3rem;
+    }
+    .stack-container {
+      position: relative;
+      width: min(420px, 90vw);
+      height: 200px;
+      perspective: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .stack-card {
+      position: absolute;
+      inset: 0;
+      background: var(--white);
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+      transition: all 0.4s ease;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .stack-card:nth-child(1) { z-index: 3; transform: translateY(0) scale(1); }
+    .stack-card:nth-child(2) { z-index: 2; transform: translateY(12px) scale(0.96); opacity: 0.8; }
+    .stack-card-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .stack-card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+    .stack-card-link {
+      font-size: 0.9rem;
+      color: var(--blue);
+      text-decoration: none;
+      transition: opacity 0.3s ease;
+    }
+    .stack-card-link:hover {
+      opacity: 0.7;
+    }
+    .stack-hint {
       font-size: 0.75rem;
       color: var(--ink-faint);
+      margin-top: 3rem;
+      font-family: 'Caveat', cursive;
+      text-align: center;
+      width: 100%;
+    }
+    .footer-credits {
+      font-size: 0.75rem;
+      color: var(--ink-faint);
+      margin-top: 2rem;
+      padding-top: 2rem;
       border-top: 1px solid rgba(0,0,0,0.04);
     }
 
@@ -252,12 +417,29 @@
     /* === 响应式 === */
     @media (max-width: 900px) {
       .hero { min-height: auto; padding: 6rem 1.5rem 4rem; }
+      .hero::before,
+      .hero::after {
+        width: 300px;
+        height: 300px;
+      }
       .nav-grid { grid-template-columns: repeat(2, 1fr); }
       .nav-links { gap: 1rem; }
     }
 
     @media (max-width: 600px) {
       body { font-size: 15px; }
+      .hero::before {
+        width: 200px;
+        height: 200px;
+        top: -10%;
+        right: -15%;
+      }
+      .hero::after {
+        width: 150px;
+        height: 150px;
+        bottom: -5%;
+        left: -10%;
+      }
       .nav-links { display: none; }
       .nav-grid { grid-template-columns: 1fr; }
     }
@@ -287,33 +469,99 @@
   <section class="section section--alt">
     <div class="container">
       <div class="nav-grid">
-        <a href="portfolio.html" class="nav-card reveal reveal-d1">
-          <div class="nav-card-icon">💼</div>
-          <h3 class="nav-card-title">作品集</h3>
-          <p class="nav-card-desc">技术项目展示，包含技术栈、项目描述和成果链接</p>
-        </a>
-        <a href="notes.html" class="nav-card reveal reveal-d2">
-          <div class="nav-card-icon">📚</div>
-          <h3 class="nav-card-title">学习笔记</h3>
-          <p class="nav-card-desc">技术学习历程、踩坑经验和知识总结</p>
-        </a>
-        <a href="life.html" class="nav-card reveal reveal-d3">
-          <div class="nav-card-icon">✨</div>
-          <h3 class="nav-card-title">生活记录</h3>
-          <p class="nav-card-desc">记录生活瞬间、思考感悟和日常随笔</p>
-        </a>
-        <a href="about.html" class="nav-card reveal reveal-d4">
-          <div class="nav-card-icon">👋</div>
-          <h3 class="nav-card-title">关于我</h3>
-          <p class="nav-card-desc">个人简介、技能展示和联系方式</p>
-        </a>
+        <!-- 作品集 -->
+        <div class="nav-card-wrapper reveal reveal-d1">
+          <div class="nav-card" onclick="this.classList.toggle('flipped')">
+            <div class="nav-card-front">
+              <div class="nav-card-icon">💼</div>
+              <h3 class="nav-card-title">作品集</h3>
+              <p class="nav-card-desc">技术项目展示，包含技术栈、项目描述和成果链接</p>
+              <p class="nav-card-flip-hint">↺ 点击翻转</p>
+            </div>
+            <div class="nav-card-back">
+              <h3 class="nav-card-title">作品集</h3>
+              <p class="nav-card-desc">探索我完成的项目，了解设计思路、技术选型和实现细节</p>
+              <a href="portfolio.html" class="nav-card-back-link">查看详情 →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 学习笔记 -->
+        <div class="nav-card-wrapper reveal reveal-d2">
+          <div class="nav-card" onclick="this.classList.toggle('flipped')">
+            <div class="nav-card-front">
+              <div class="nav-card-icon">📚</div>
+              <h3 class="nav-card-title">学习笔记</h3>
+              <p class="nav-card-desc">技术学习历程、踩坑经验和知识总结</p>
+              <p class="nav-card-flip-hint">↺ 点击翻转</p>
+            </div>
+            <div class="nav-card-back">
+              <h3 class="nav-card-title">学习笔记</h3>
+              <p class="nav-card-desc">记录学习过程中的思考、实践和总结，持续精进技术能力</p>
+              <a href="notes.html" class="nav-card-back-link">开始阅读 →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 生活记录 -->
+        <div class="nav-card-wrapper reveal reveal-d3">
+          <div class="nav-card" onclick="this.classList.toggle('flipped')">
+            <div class="nav-card-front">
+              <div class="nav-card-icon">✨</div>
+              <h3 class="nav-card-title">生活记录</h3>
+              <p class="nav-card-desc">记录生活瞬间、思考感悟和日常随笔</p>
+              <p class="nav-card-flip-hint">↺ 点击翻转</p>
+            </div>
+            <div class="nav-card-back">
+              <h3 class="nav-card-title">生活记录</h3>
+              <p class="nav-card-desc">分享生活中的点滴感悟，记录值得珍藏的美好时刻</p>
+              <a href="life.html" class="nav-card-back-link">探索更多 →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 关于我 -->
+        <div class="nav-card-wrapper reveal reveal-d4">
+          <div class="nav-card" onclick="this.classList.toggle('flipped')">
+            <div class="nav-card-front">
+              <div class="nav-card-icon">👋</div>
+              <h3 class="nav-card-title">关于我</h3>
+              <p class="nav-card-desc">个人简介、技能展示和联系方式</p>
+              <p class="nav-card-flip-hint">↺ 点击翻转</p>
+            </div>
+            <div class="nav-card-back">
+              <h3 class="nav-card-title">关于我</h3>
+              <p class="nav-card-desc">了解我的背景、专业技能和联系方式，期待与你交流</p>
+              <a href="about.html" class="nav-card-back-link">了解更多 →</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ====== Footer ====== -->
   <footer class="footer">
-    <p>MyWeb © 2026 · Powered by Esther Design System</p>
+    <div class="container">
+      <h2 class="footer-title reveal">联系我</h2>
+      <p class="footer-subtitle reveal">欢迎交流讨论，期待与你连接</p>
+
+      <div class="stack-container reveal reveal-d1" id="contactStack">
+        <div class="stack-card" onclick="flipContactStack()">
+          <div class="stack-card-icon">📧</div>
+          <h3 class="stack-card-title">邮箱</h3>
+          <a href="mailto:504424637@qq.com" class="stack-card-link" onclick="event.stopPropagation()">504424637@qq.com</a>
+        </div>
+        <div class="stack-card" onclick="flipContactStack()">
+          <div class="stack-card-icon">📱</div>
+          <h3 class="stack-card-title">小红书</h3>
+          <a href="https://xhslink.cn/o/3dBs2IMNfpl" target="_blank" class="stack-card-link" onclick="event.stopPropagation()">@510的小红书</a>
+        </div>
+      </div>
+      <p class="stack-hint">点击卡片查看下一个联系方式</p>
+
+      <p class="footer-credits">MyWeb © 2026 · Powered by Esther Design System</p>
+    </div>
   </footer>
 
   <!-- ====== Scripts ====== -->
@@ -333,6 +581,33 @@
     window.addEventListener('scroll', () => {
       document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 40);
     });
+
+    // 堆叠卡片翻转功能
+    function flipContactStack() {
+      const stack = document.getElementById('contactStack');
+      const cards = [...stack.children];
+      const first = cards[0];
+
+      first.style.transform = 'translateX(-120%) rotate(-5deg)';
+      first.style.opacity = '0';
+
+      setTimeout(() => {
+        stack.appendChild(first);
+        first.style.transform = '';
+        first.style.opacity = '';
+
+        [...stack.children].forEach((card, i) => {
+          card.style.zIndex = 3 - i;
+          if (i === 0) {
+            card.style.transform = 'translateY(0) scale(1)';
+            card.style.opacity = '1';
+          } else if (i === 1) {
+            card.style.transform = 'translateY(12px) scale(0.96)';
+            card.style.opacity = '0.8';
+          }
+        });
+      }, 300);
+    }
   </script>
 <!-- © ESTHER不二 esthersjw/esther-design-system CC BY-NC 4.0 -->
 </body>
