@@ -16,11 +16,12 @@ MyWeb 是一个纯静态个人网站，使用 [Esther Design System](https://git
 ## 技术栈
 
 ```
-静态 HTML/CSS + 原生 JavaScript
+静态 HTML/CSS + ES6 模块化 JavaScript
 ├── 设计系统: Esther Design System
 ├── 组件库: 51 个预制组件
 ├── 布局: 16 种布局模式
 ├── 字体: Google Fonts (Noto Serif SC / Noto Sans SC / Fraunces / Caveat / Fira Code)
+├── 模块化: ES6 import/export
 └── 部署: GitHub Pages
 ```
 
@@ -39,7 +40,7 @@ MyWeb 是一个纯静态个人网站，使用 [Esther Design System](https://git
 
 ```
 MyWeb/
-├── index.html              # 首页
+├── index.html              # 首页（已组件化重构）
 ├── portfolio.html          # 作品集（待开发）
 ├── notes.html              # 学习笔记（待开发）
 ├── life.html               # 生活记录（待开发）
@@ -47,11 +48,27 @@ MyWeb/
 ├── assets/
 │   ├── avatar.jpg          # 个人头像
 │   └── images/             # 图片资源
+├── components/             # 组件目录（2026-09-30 新增）
+│   ├── nav/
+│   │   ├── nav.css         # 导航栏样式
+│   │   └── nav.js          # 导航栏逻辑（ES6 模块）
+│   ├── hero/
+│   │   └── hero.css        # Hero 区域样式
+│   ├── cards/
+│   │   ├── cards.css       # 导航卡片样式
+│   │   └── cards.js        # 卡片交互逻辑（ES6 模块）
+│   └── footer/
+│       ├── footer.css      # 页脚样式
+│       └── footer.js       # 页脚交互逻辑（ES6 模块）
 ├── content/
 │   ├── notes/              # Markdown 笔记
 │   └── life/               # 生活记录 Markdown
 ├── css/
-│   └── variables.css       # 品牌色变量
+│   ├── variables.css       # 品牌色变量
+│   ├── reset.css           # CSS 重置（2026-09-30 新增）
+│   └── global.css          # 全局样式（2026-09-30 新增）
+├── scripts/
+│   └── main.js             # 主入口脚本（ES6 模块，2026-09-30 新增）
 ├── esther-design-system-main/  # 设计系统资源
 │   ├── brand-dna.md
 │   ├── references/
@@ -79,28 +96,30 @@ MyWeb/
    cd MyWeb
    ```
 
-2. **打开首页**
-   - 方法 1：直接双击 `index.html`
-   - 方法 2：通过浏览器文件菜单打开
-   - 方法 3：命令行打开
-     ```bash
-     # Windows
-     start index.html
-     
-     # Mac
-     open index.html
-     
-     # Linux
-     xdg-open index.html
-     ```
-
-3. **实时预览**
-   - 可选：使用 VS Code 的 Live Server 插件实现自动刷新
-   - 可选：使用 Python 简单服务器
+2. **启动本地服务器**（必需，因为使用了 ES6 模块）
+   
+   选择以下任一方式：
+   
+   - **方法 1：Python**
      ```bash
      python -m http.server 8000
      # 访问 http://localhost:8000
      ```
+   
+   - **方法 2：Node.js**
+     ```bash
+     npx http-server
+     # 访问 http://localhost:8080
+     ```
+   
+   - **方法 3：VS Code Live Server**
+     - 安装 Live Server 扩展
+     - 右键 `index.html` → "Open with Live Server"
+
+3. **开发说明**
+   - 由于采用 ES6 模块化，**不能直接双击打开 HTML 文件**
+   - 必须通过 HTTP 服务器访问，否则会出现 CORS 错误
+   - 修改文件后刷新浏览器即可看到效果
 
 ### 修改样式
 
@@ -110,9 +129,16 @@ MyWeb/
 
 ### 响应式断点
 
-- **桌面端**：1200px+（导航卡片 4 列）
+- **桌面端**：> 900px（导航卡片 4 列）
 - **平板端**：600px - 900px（导航卡片 2 列）
-- **移动端**：< 600px（导航卡片单列）
+- **移动端**：< 600px（导航卡片单列，禁用 3D 翻转效果）
+
+### 架构特点（2026-09-30 重构）
+
+- **ES6 模块化**：使用 import/export 组织代码
+- **组件就近原则**：每个组件包含自己的 CSS 和 JS
+- **移动端优化**：针对布局排版优化（字体、间距、触摸交互）
+- **代码精简**：index.html 从 615 行减少到 146 行
 
 ## 部署
 
