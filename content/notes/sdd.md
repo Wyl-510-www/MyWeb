@@ -1,81 +1,70 @@
-规范驱动开发
+# 规范驱动开发工作流 学习笔记
+> 核心思想：项目层面制定**项目宪法(constitution)**，定义不可变标准；基于独立分支开展特性迭代循环，每个循环内完成规划、实现、验证。特性之间保持干净环境，降低切换负担。
+> 适用：新建项目、存量改造项目
 
-项目层面指定宪法 “constitution”，定义不可变标准。然后进行特性迭代循环
+## 一、项目宪法（Constitution）
+存放目录：`specs/`，是项目顶层基准规范。
+### 宪法包含3份文件
+- `mission.md`：项目使命、定位与核心目标
+- `tech-stack.md`：技术栈、技术约束、选型规范
+- `roadmap.md`：高层实施顺序，拆分为极小粒度阶段
 
-每个循环都在独立的分支上面进行规划、实现、验证功能。
+### 宪法生成规则
+1. **新建项目**：通过与智能体对话收集需求，共同制定项目宪章
+2. **改造项目**：基于现有代码库分析，反向生成项目宪章
 
-在特性之间保持干净环境 减少切换负担。
+> ✅ 强制规则：写入磁盘生成宪法文件前，**必须使用 AskUserQuestion 工具**，针对这3份文档集中确认内容。
 
-这种工作流同时适用于新建项目和改造项目！
+---
 
-# 新建项目
+## 二、单特性迭代标准流程
+> 完成项目宪法后，清空上下文，基于 roadmap 启动阶段性任务
 
-在新的项目中，你通过与智能体的对话，来制定这份项目宪章；在改造项目中，需要处理现有的代码库，你将依据现有的代码库，生成项目宪章。
+1. **规划阶段**
+  - 读取 `specs/roadmap.md`，选取下一阶段任务，新建独立分支
+  - 在 `specs` 下新建特性目录：`YYYY-MM-DD-feature-name`
+  - 目录内创建3份规格文档：
+    - `plan.md`：编号分组任务清单
+    - `requirements.md`：范围边界、业务决策、上下文信息
+    - `validation.md`：验收标准，定义实现成功、可合并的判定条件
+  - 编写参考：`mission.md` + `tech-stack.md`
+   > ✅ 强制规则：写入磁盘前，**必须使用 AskUserQuestion 工具**集中确认文档内容
 
-Constitution包含:
+2. **实现阶段**
+   按照 `plan.md` 的任务分组，完成开发实现。
 
-Mission.md
+3. **进度同步**
+   开发完成后：
+  - 更新 `roadmap.md`，标记阶段进度
+  - 更新 `validation.md`，同步验收验证结果
 
-Tech Stack.md
+4. **人类在环（Human-in-the-loop）**
+   对比实际效果和预期目标，和智能体沟通，针对偏差进行修改。
 
-RoadMap.md
+---
 
-!image.png
+## 三、MVP最小产品流程 & 深度并行审核
+1. 依据 `roadmap.md` 遍历特性，创建MVP专属分支，调研MVP所需特性规格
+2. 在 `specs` 新建MVP特性目录，同样包含：`plan.md` / `requirements.md` / `validation.md`
+   > 编写参考：项目宪章 + 技术栈文档 + 已有特性规格
+   > ✅ 强制规则：写入磁盘前，**必须使用 AskUserQuestion 工具**集中确认文档内容
 
-!image.png
+3. **深度并行审核**
+   拿到完整变更diff，并行启动多个评审代理。
+   子代理独立评审，避免污染主代理上下文窗口。
 
-首先，创建项目的宪法。
-We are writing AgentClinic, a place for AI agents to get relief from their humans. Look in the README.md for input from stakeholders.
-Let's create a "constitution" in a specs directory:
+4. **MVP作为宪章极限测试**
+   将最小产品作为项目宪章与特性规格的极限测试载体。
+   若产出结果偏离预期目标，需要复盘、重新规划，修复智能体产生错误引导的根源。
 
-`mission.md`
+5. **MVP评审闭环**
+  - 智能体识别MVP规划中的漏洞
+  - 将评估结果同步相关方，开展最小版本评审
+  - 分支最终合并 或 归档
 
-`tech-stack.md`
+---
 
-`roadmap.md` for high-level implementation order, in very small phases of work.
-
-Important: You *must* use your AskUserQuestion tool, grouped on these 3, before writing to disk.
-
-其次，清空上下文，为第一阶段的任务制定计划。
-Find the next phase on specs/roadmap.md and make a branch, ask me about the feature spec.  
-Create:
-
-- A new directory YYYY-MM-DD-feature-name under specs for this feature work
-- In there  
-  -‘plan.md' as a series of numbered task groups  
-  -‘requirements.md ’for the scope, decisions, context
-- ‘validation.md’ for how to know the implementation succeeded and can be merged
-
-Refer to specs/mission.md and specs/tech-stack.md for guidance.  
-Important: You *must* use your AskUserQuestion tool, grouped on these 5, before writing to  disk.
-
-然后，`implement the remaining task groups` ,正式开启第一阶段的任务。完成之后，要同步roadmap的进度、已经第一阶段计划中validation的进度。
-
-接着，观察效果，发现与自己预期不符合的地方，和agent进行交流，进行修改。这一过程称之为‘人类在环’。
-
-!image.png
-
-I have the full diff. Spawing three reviewers in parallel.深度审核让代理有更多空间思考变更，并通过子代理避免污染主代理的上下文窗口。
-
-针对现有规格给出指导.把这个最小的产品作为宪章与功能规格的极限测试，如果现在的结果偏理论预期目标，那么我们必须负责地重新规划，纠正让智能体误导的原因。
-
-Go through the features on specs/roadmap.md, make a mvp branch,and ask me about the features specs needed to complete an mvp.
-Create :
-
-- A new directory under specs for this feature work
-- In there:
-    - - ‘plan.md’ for this task list
-    - - ‘requirements.md’ for the scope,decisions,context
-    - - ‘validation.md’ for how to know the implemention succeeded and can be merged
-
-Refer to specs/mission.md and  specs/tech-stack.md plus the existing feature specs for guidance.
-
-Important : You *must* use your AskUserQuestion tool, grouped on these 5, before writing to  disk.
-
-许多规格文件始于与智能体的反复对话，审查规格文件是一件必要的事情！！！！
-
-因为你会发现智能体为了填补空白而做出的错误假设。
-
-通过这个，智能体可以指出最小版本MVP在规划中存在的漏洞，我们可以将此次评估分享给相关方进行最小版本审查，然后合并或者归档该分支。
-
-# 改造项目
+## 四、重要要点总结
+1. 绝大多数规格文件来自人与智能体的多轮对话，**审查规格是必要步骤**
+2. 智能体常会为填补信息空白做出错误假设，人工复核必不可少
+3. 所有迭代遵循：**先定规范，后开发；单特性独立分支隔离**

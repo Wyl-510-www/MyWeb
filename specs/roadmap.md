@@ -205,11 +205,38 @@
 
 ## 后续扩展方向（Phase 8+）
 当基础功能稳定后，可考虑：
+
+### Phase 8: 笔记管理后台（Web Admin）
+**目标**：提供网页端笔记管理界面，支持在线创建和编辑笔记
+
+- [ ] 创建管理后台页面 `admin.html`
+- [ ] 实现笔记表单编辑功能：
+  - 标题（title）
+  - 发布日期（date）
+  - 标签（tags）- 支持多标签输入
+  - 描述（description）
+  - 阅读时间（readingTime）
+- [ ] Markdown 文件上传功能
+- [ ] 后端技术选型：
+  - **方案 A**：Node.js + Express 后端 API
+  - **方案 B**：集成 Headless CMS（Forestry / Netlify CMS / Decap CMS）
+  - **方案 C**：GitHub API 直接提交（需要 OAuth）
+- [ ] 自动触发构建脚本（`npm run build:notes`）
+- [ ] 笔记列表管理（编辑、删除已有笔记）
+- [ ] 预览功能（实时 Markdown 渲染预览）
+
+**预计时间**：6-8 小时  
+**技术栈**：Node.js / Express / Multer (文件上传) / GitHub API
+
+**备注**：此功能将笔记管理从纯本地文件操作升级为 Web 界面操作，降低内容更新门槛。
+
+---
+
+### 其他增强功能
 - [ ] 笔记全文搜索（lunr.js 或 Algolia）
 - [ ] RSS 订阅功能
 - [ ] 评论系统（Giscus）
 - [ ] 深色模式切换
-- [ ] 阅读进度条
 - [ ] 笔记阅读统计（Google Analytics）
 
 如项目复杂度显著增加，可迁移到 **Vue 3 + Vite** 或 **Nuxt 3**，并将 Esther Design System 的 CSS 提取为独立样式库。

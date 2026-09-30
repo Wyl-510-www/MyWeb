@@ -54,61 +54,90 @@
 
       <!-- 文章正文 -->
       <div class="note-content">
-        <p>规范驱动开发</p>
-<p>项目层面指定宪法 “constitution”，定义不可变标准。然后进行特性迭代循环</p>
-<p>每个循环都在独立的分支上面进行规划、实现、验证功能。</p>
-<p>在特性之间保持干净环境 减少切换负担。</p>
-<p>这种工作流同时适用于新建项目和改造项目！</p>
-<h1>新建项目</h1>
-<p>在新的项目中，你通过与智能体的对话，来制定这份项目宪章；在改造项目中，需要处理现有的代码库，你将依据现有的代码库，生成项目宪章。</p>
-<p>Constitution包含:</p>
-<p>Mission.md</p>
-<p>Tech Stack.md</p>
-<p>RoadMap.md</p>
-<p>!image.png</p>
-<p>!image.png</p>
-<p>首先，创建项目的宪法。<br>We are writing AgentClinic, a place for AI agents to get relief from their humans. Look in the README.md for input from stakeholders.<br>Let&#39;s create a &quot;constitution&quot; in a specs directory:</p>
-<p><code>mission.md</code></p>
-<p><code>tech-stack.md</code></p>
-<p><code>roadmap.md</code> for high-level implementation order, in very small phases of work.</p>
-<p>Important: You <em>must</em> use your AskUserQuestion tool, grouped on these 3, before writing to disk.</p>
-<p>其次，清空上下文，为第一阶段的任务制定计划。<br>Find the next phase on specs/roadmap.md and make a branch, ask me about the feature spec.<br>Create:</p>
+        <h1>规范驱动开发工作流 学习笔记</h1>
+<blockquote>
+<p>核心思想：项目层面制定<strong>项目宪法(constitution)</strong>，定义不可变标准；基于独立分支开展特性迭代循环，每个循环内完成规划、实现、验证。特性之间保持干净环境，降低切换负担。<br>适用：新建项目、存量改造项目</p>
+</blockquote>
+<h2>一、项目宪法（Constitution）</h2>
+<p>存放目录：<code>specs/</code>，是项目顶层基准规范。</p>
+<h3>宪法包含3份文件</h3>
 <ul>
-<li>A new directory YYYY-MM-DD-feature-name under specs for this feature work</li>
-<li>In there<br>-‘plan.md&#39; as a series of numbered task groups<br>-‘requirements.md ’for the scope, decisions, context</li>
-<li>‘validation.md’ for how to know the implementation succeeded and can be merged</li>
+<li><code>mission.md</code>：项目使命、定位与核心目标</li>
+<li><code>tech-stack.md</code>：技术栈、技术约束、选型规范</li>
+<li><code>roadmap.md</code>：高层实施顺序，拆分为极小粒度阶段</li>
 </ul>
-<p>Refer to specs/mission.md and specs/tech-stack.md for guidance.<br>Important: You <em>must</em> use your AskUserQuestion tool, grouped on these 5, before writing to  disk.</p>
-<p>然后，<code>implement the remaining task groups</code> ,正式开启第一阶段的任务。完成之后，要同步roadmap的进度、已经第一阶段计划中validation的进度。</p>
-<p>接着，观察效果，发现与自己预期不符合的地方，和agent进行交流，进行修改。这一过程称之为‘人类在环’。</p>
-<p>!image.png</p>
-<p>I have the full diff. Spawing three reviewers in parallel.深度审核让代理有更多空间思考变更，并通过子代理避免污染主代理的上下文窗口。</p>
-<p>针对现有规格给出指导.把这个最小的产品作为宪章与功能规格的极限测试，如果现在的结果偏理论预期目标，那么我们必须负责地重新规划，纠正让智能体误导的原因。</p>
-<p>Go through the features on specs/roadmap.md, make a mvp branch,and ask me about the features specs needed to complete an mvp.<br>Create :</p>
+<h3>宪法生成规则</h3>
+<ol>
+<li><strong>新建项目</strong>：通过与智能体对话收集需求，共同制定项目宪章</li>
+<li><strong>改造项目</strong>：基于现有代码库分析，反向生成项目宪章</li>
+</ol>
+<blockquote>
+<p>✅ 强制规则：写入磁盘生成宪法文件前，<strong>必须使用 AskUserQuestion 工具</strong>，针对这3份文档集中确认内容。</p>
+</blockquote>
+<hr>
+<h2>二、单特性迭代标准流程</h2>
+<blockquote>
+<p>完成项目宪法后，清空上下文，基于 roadmap 启动阶段性任务</p>
+</blockquote>
+<ol>
+<li><strong>规划阶段</strong></li>
+</ol>
 <ul>
-<li>A new directory under specs for this feature work</li>
-<li>In there:<ul>
-<li><ul>
-<li>‘plan.md’ for this task list</li>
+<li>读取 <code>specs/roadmap.md</code>，选取下一阶段任务，新建独立分支</li>
+<li>在 <code>specs</code> 下新建特性目录：<code>YYYY-MM-DD-feature-name</code></li>
+<li>目录内创建3份规格文档：<ul>
+<li><code>plan.md</code>：编号分组任务清单</li>
+<li><code>requirements.md</code>：范围边界、业务决策、上下文信息</li>
+<li><code>validation.md</code>：验收标准，定义实现成功、可合并的判定条件</li>
 </ul>
 </li>
-<li><ul>
-<li>‘requirements.md’ for the scope,decisions,context</li>
+<li>编写参考：<code>mission.md</code> + <code>tech-stack.md</code></li>
 </ul>
+<blockquote>
+<p>✅ 强制规则：写入磁盘前，<strong>必须使用 AskUserQuestion 工具</strong>集中确认文档内容</p>
+</blockquote>
+<ol start="2">
+<li><p><strong>实现阶段</strong><br>按照 <code>plan.md</code> 的任务分组，完成开发实现。</p>
 </li>
-<li><ul>
-<li>‘validation.md’ for how to know the implemention succeeded and can be merged</li>
-</ul>
+<li><p><strong>进度同步</strong><br>开发完成后：</p>
 </li>
+</ol>
+<ul>
+<li>更新 <code>roadmap.md</code>，标记阶段进度</li>
+<li>更新 <code>validation.md</code>，同步验收验证结果</li>
 </ul>
+<ol start="4">
+<li><strong>人类在环（Human-in-the-loop）</strong><br>对比实际效果和预期目标，和智能体沟通，针对偏差进行修改。</li>
+</ol>
+<hr>
+<h2>三、MVP最小产品流程 &amp; 深度并行审核</h2>
+<ol>
+<li><p>依据 <code>roadmap.md</code> 遍历特性，创建MVP专属分支，调研MVP所需特性规格</p>
 </li>
+<li><p>在 <code>specs</code> 新建MVP特性目录，同样包含：<code>plan.md</code> / <code>requirements.md</code> / <code>validation.md</code></p>
+<blockquote>
+<p>编写参考：项目宪章 + 技术栈文档 + 已有特性规格<br>✅ 强制规则：写入磁盘前，<strong>必须使用 AskUserQuestion 工具</strong>集中确认文档内容</p>
+</blockquote>
+</li>
+<li><p><strong>深度并行审核</strong><br>拿到完整变更diff，并行启动多个评审代理。<br>子代理独立评审，避免污染主代理上下文窗口。</p>
+</li>
+<li><p><strong>MVP作为宪章极限测试</strong><br>将最小产品作为项目宪章与特性规格的极限测试载体。<br>若产出结果偏离预期目标，需要复盘、重新规划，修复智能体产生错误引导的根源。</p>
+</li>
+<li><p><strong>MVP评审闭环</strong></p>
+</li>
+</ol>
+<ul>
+<li>智能体识别MVP规划中的漏洞</li>
+<li>将评估结果同步相关方，开展最小版本评审</li>
+<li>分支最终合并 或 归档</li>
 </ul>
-<p>Refer to specs/mission.md and  specs/tech-stack.md plus the existing feature specs for guidance.</p>
-<p>Important : You <em>must</em> use your AskUserQuestion tool, grouped on these 5, before writing to  disk.</p>
-<p>许多规格文件始于与智能体的反复对话，审查规格文件是一件必要的事情！！！！</p>
-<p>因为你会发现智能体为了填补空白而做出的错误假设。</p>
-<p>通过这个，智能体可以指出最小版本MVP在规划中存在的漏洞，我们可以将此次评估分享给相关方进行最小版本审查，然后合并或者归档该分支。</p>
-<h1>改造项目</h1>
+<hr>
+<h2>四、重要要点总结</h2>
+<ol>
+<li>绝大多数规格文件来自人与智能体的多轮对话，<strong>审查规格是必要步骤</strong></li>
+<li>智能体常会为填补信息空白做出错误假设，人工复核必不可少</li>
+<li>所有迭代遵循：<strong>先定规范，后开发；单特性独立分支隔离</strong></li>
+</ol>
 
       </div>
 
