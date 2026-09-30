@@ -1,0 +1,273 @@
+/* 生活记录列表页样式 */
+
+.life-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.life-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.life-header h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 3rem;
+  color: var(--primary-blue);
+  margin-bottom: 1rem;
+}
+
+/* 标签筛选区域 */
+.tags-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: var(--bg-light);
+  border-radius: 12px;
+}
+
+.tag-filter-btn {
+  padding: 0.5rem 1.25rem;
+  background: white;
+  border: 2px solid var(--border-light);
+  border-radius: 24px;
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tag-filter-btn:hover {
+  border-color: var(--primary-blue);
+  color: var(--primary-blue);
+  transform: translateY(-2px);
+}
+
+.tag-filter-btn.active {
+  background: var(--primary-blue);
+  color: white;
+  border-color: var(--primary-blue);
+}
+
+.tag-filter-btn.all-btn {
+  background: var(--primary-yellow);
+  border-color: var(--primary-yellow);
+  font-weight: 500;
+}
+
+.tag-filter-btn.all-btn:hover {
+  background: var(--yellow-dark);
+  border-color: var(--yellow-dark);
+  color: white;
+}
+
+/* 时间线布局（桌面端） */
+.timeline {
+  position: relative;
+  padding-left: 120px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 80px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom,
+    var(--primary-blue) 0%,
+    var(--primary-blue) 50%,
+    transparent 100%);
+  border-left: 2px dashed var(--primary-blue);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+.timeline-date {
+  position: absolute;
+  left: -120px;
+  top: 0;
+  width: 100px;
+  font-family: 'Caveat', cursive;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-blue);
+  background: var(--primary-yellow);
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -46px;
+  top: 12px;
+  width: 12px;
+  height: 12px;
+  background: var(--primary-blue);
+  border: 3px solid white;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px var(--primary-blue);
+}
+
+.timeline-item::after {
+  content: '';
+  position: absolute;
+  left: -40px;
+  top: 18px;
+  width: 40px;
+  height: 2px;
+  background: var(--primary-blue);
+}
+
+/* 生活记录卡片 */
+.life-card {
+  background: white;
+  border: 2px dashed var(--border-light);
+  border-radius: 12px;
+  padding: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.life-card:hover {
+  border-color: var(--primary-blue);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  transform: translateY(-4px);
+}
+
+.life-card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  background: var(--primary-yellow);
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.life-card-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 1.75rem;
+  color: var(--text-dark);
+  margin-bottom: 0.75rem;
+}
+
+.life-card-date {
+  font-family: 'Caveat', cursive;
+  font-size: 1.25rem;
+  color: var(--text-medium);
+  margin-bottom: 1rem;
+}
+
+.life-card-description {
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-medium);
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.life-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.life-card-tag {
+  padding: 0.25rem 0.75rem;
+  background: var(--bg-light);
+  border-radius: 16px;
+  font-size: 0.875rem;
+  color: var(--text-medium);
+  font-family: 'Noto Sans SC', sans-serif;
+}
+
+/* 空状态 */
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--text-light);
+}
+
+.empty-state p {
+  font-size: 1.25rem;
+  font-family: 'Noto Sans SC', sans-serif;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .life-page {
+    padding: 2rem 1rem;
+  }
+
+  .life-header h1 {
+    font-size: 2rem;
+  }
+
+  .tags-filter {
+    padding: 1rem;
+  }
+
+  /* 隐藏时间线，使用简单卡片列表 */
+  .timeline {
+    padding-left: 0;
+  }
+
+  .timeline::before {
+    display: none;
+  }
+
+  .timeline-item::before,
+  .timeline-item::after {
+    display: none;
+  }
+
+  .timeline-date {
+    position: static;
+    width: auto;
+    margin-bottom: 1rem;
+    display: inline-block;
+  }
+
+  .life-card {
+    padding: 1.5rem;
+  }
+
+  .life-card-title {
+    font-size: 1.5rem;
+  }
+
+  .life-card-image {
+    height: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .life-header h1 {
+    font-size: 1.75rem;
+  }
+
+  .life-card-title {
+    font-size: 1.25rem;
+  }
+
+  .tag-filter-btn {
+    font-size: 0.875rem;
+    padding: 0.4rem 1rem;
+  }
+}
