@@ -8,7 +8,10 @@
       "Bash(curl -s http://localhost:8000/notes.html)",
       "Bash(curl -s http://localhost:8000/notes/javascript-performance.html)",
       "Bash(git add *)",
-      "Bash(git checkout *)"
+      "Bash(git checkout *)",
+      "Bash(npx http-server *)",
+      "Bash(curl -s http://localhost:8000/life.html)",
+      "Bash(curl -s \"http://localhost:8000/life.html\")"
     ]
   }
 }
