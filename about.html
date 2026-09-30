@@ -34,101 +34,114 @@
     </div>
   </nav>
 
-  <!-- 个人简介区域 -->
+  <!-- 头部区域 -->
+  <section class="about-hero">
+    <img src="assets/avatar.jpg" alt="头像" class="about-avatar">
+    <h1 class="about-title">510</h1>
+    <p class="about-subtitle">前端开发者 · 终身学习者</p>
+  </section>
+
+  <!-- 简介区域 -->
   <section class="about-intro section">
     <div class="container">
-      <div class="intro-grid">
-        <!-- 头像卡片 -->
-        <div class="intro-avatar reveal">
-          <img src="assets/avatar.jpg" alt="510的头像" class="avatar-img">
+      <!-- 大引号 Slogan -->
+      <div class="viral-pullquote">
+        <p>用代码记录成长，用学习点亮生活</p>
+      </div>
+
+      <!-- 简介文字 -->
+      <div class="about-text">
+        <p>
+          我是一名<span class="hl-yellow">前端开发者</span>，专注于创建简洁、高效、有温度的用户界面。
+        </p>
+        <p>
+          从接触编程开始，我就对<span class="hl-yellow">Web技术</span>充满热情。我相信好的代码不仅要功能完善，更要易读、易维护。在开发中，我追求的不是华丽的技术堆砌，而是<span class="hl-yellow">用恰当的技术解决实际问题</span>。
+        </p>
+        <p>
+          学习对我来说不仅是工作需要，更是一种生活方式。我习惯通过<span class="hl-yellow">写笔记、做总结</span>来巩固知识，这个网站就是我的学习轨迹和成长记录。我相信<span class="hl-yellow">真实记录</span>比完美展示更有价值——每一次尝试、每一个bug、每一点进步，都是成长的一部分。
+        </p>
+        <p>
+          除了编程，我也热爱阅读、音乐和摄影。我认为技术之外的兴趣能让我保持对生活的敏感度，也为编程带来不同的视角和灵感。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 核心技能区域 -->
+  <section class="about-skills section section--alt">
+    <div class="container">
+      <h2 class="section-title">核心技能</h2>
+
+      <div class="skills-grid">
+        <!-- 技能卡片 1 -->
+        <div class="icon-card">
+          <div class="card-icon-area card-icon-area--blue">💻</div>
+          <div class="card-content">
+            <h3 class="card-title">前端开发</h3>
+            <p class="card-desc">熟练掌握 HTML/CSS/JavaScript，有 Vue.js 项目经验，注重代码质量和用户体验</p>
+          </div>
         </div>
 
-        <!-- 个人简介卡片 -->
-        <div class="intro-content reveal reveal-d1">
-          <div class="magazine-card">
-            <h1 class="card-title">你好，我是 510</h1>
-            <p class="card-desc">
-              一名<span class="hl-yellow">前端开发学习者</span>，目前就读于某高校计算机相关专业。
-              热爱编程，享受将设计变为现实的过程。
-            </p>
-            <p class="card-desc">
-              正在学习现代前端技术栈（Vue、React、TypeScript），
-              希望通过这个个人网站记录学习历程、沉淀技术经验、分享生活感悟。
-            </p>
+        <!-- 技能卡片 2 -->
+        <div class="icon-card">
+          <div class="card-icon-area card-icon-area--yellow">📱</div>
+          <div class="card-content">
+            <h3 class="card-title">响应式设计</h3>
+            <p class="card-desc">关注移动端适配，能够创建在不同设备上都流畅运行的界面</p>
           </div>
+        </div>
 
-          <!-- 个人 Slogan -->
-          <div class="quote-highlight reveal reveal-d2">
-            <span class="quote-title">持续学习，真实记录，不断成长</span>
-            <p class="quote-desc">用代码构建世界，用文字记录思考</p>
+        <!-- 技能卡片 3 -->
+        <div class="icon-card">
+          <div class="card-icon-area card-icon-area--blue">📚</div>
+          <div class="card-content">
+            <h3 class="card-title">持续学习</h3>
+            <p class="card-desc">善于总结笔记，乐于探索新技术，保持对技术的好奇心和求知欲</p>
+          </div>
+        </div>
+
+        <!-- 技能卡片 4 -->
+        <div class="icon-card">
+          <div class="card-icon-area card-icon-area--red">🎨</div>
+          <div class="card-content">
+            <h3 class="card-title">设计思维</h3>
+            <p class="card-desc">注重视觉细节和用户体验，能够将设计理念转化为代码实现</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 能力象限展示 -->
-  <section class="about-skills section section--alt">
+  <!-- 其他技能标签 -->
+  <section class="about-other-skills section">
     <div class="container">
-      <h2 class="section-title reveal">技能与能力</h2>
+      <h3 class="skill-category-title">前端技术</h3>
+      <div class="skill-tags">
+        <span class="skill-pill skill-pill--blue">HTML5</span>
+        <span class="skill-pill skill-pill--blue">CSS3</span>
+        <span class="skill-pill skill-pill--blue">JavaScript</span>
+        <span class="skill-pill skill-pill--blue">Vue.js</span>
+        <span class="skill-pill skill-pill--blue">Responsive Design</span>
+        <span class="skill-pill skill-pill--blue">Flexbox & Grid</span>
+      </div>
 
-      <div class="skills-grid">
-        <!-- 开发能力 -->
-        <div class="icon-card reveal reveal-d1">
-          <div class="card-icon-area card-icon-area--blue">💻</div>
-          <div class="card-content">
-            <h3 class="card-title">开发能力</h3>
-            <p class="card-desc">前端技术栈</p>
-            <div class="skill-tags">
-              <span class="tag tag--blue">HTML/CSS</span>
-              <span class="tag tag--blue">JavaScript</span>
-              <span class="tag tag--blue">Vue.js</span>
-              <span class="tag tag--blue">Git</span>
-            </div>
-          </div>
-        </div>
+      <h3 class="skill-category-title">工具与方法</h3>
+      <div class="skill-tags">
+        <span class="skill-pill skill-pill--yellow">Git & GitHub</span>
+        <span class="skill-pill skill-pill--yellow">VS Code</span>
+        <span class="skill-pill skill-pill--yellow">Chrome DevTools</span>
+        <span class="skill-pill skill-pill--yellow">Figma</span>
+        <span class="skill-pill skill-pill--yellow">版本控制</span>
+        <span class="skill-pill skill-pill--yellow">代码规范</span>
+      </div>
 
-        <!-- 设计能力 -->
-        <div class="icon-card reveal reveal-d2">
-          <div class="card-icon-area card-icon-area--yellow">🎨</div>
-          <div class="card-content">
-            <h3 class="card-title">设计能力</h3>
-            <p class="card-desc">UI/UX 与视觉设计</p>
-            <div class="skill-tags">
-              <span class="tag tag--yellow">Figma</span>
-              <span class="tag tag--yellow">原型设计</span>
-              <span class="tag tag--yellow">视觉规范</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 学习能力 -->
-        <div class="icon-card reveal reveal-d3">
-          <div class="card-icon-area card-icon-area--blue">📚</div>
-          <div class="card-content">
-            <h3 class="card-title">学习能力</h3>
-            <p class="card-desc">正在学习的新技术</p>
-            <div class="skill-tags">
-              <span class="tag tag--blue">React</span>
-              <span class="tag tag--blue">TypeScript</span>
-              <span class="tag tag--blue">Node.js</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 其他能力 -->
-        <div class="icon-card reveal reveal-d4">
-          <div class="card-icon-area card-icon-area--red">🛠️</div>
-          <div class="card-content">
-            <h3 class="card-title">其他能力</h3>
-            <p class="card-desc">工具与协作</p>
-            <div class="skill-tags">
-              <span class="tag tag--red">VS Code</span>
-              <span class="tag tag--red">Notion</span>
-              <span class="tag tag--red">团队协作</span>
-            </div>
-          </div>
-        </div>
+      <h3 class="skill-category-title">正在学习</h3>
+      <div class="skill-tags">
+        <span class="skill-pill skill-pill--red">Node.js</span>
+        <span class="skill-pill skill-pill--red">TypeScript</span>
+        <span class="skill-pill skill-pill--red">React</span>
+        <span class="skill-pill skill-pill--red">设计系统</span>
+        <span class="skill-pill skill-pill--red">Web 性能优化</span>
       </div>
     </div>
   </section>
@@ -136,40 +149,20 @@
   <!-- 联系方式区域 -->
   <section class="about-contact section">
     <div class="container">
-      <h2 class="section-title reveal">联系方式</h2>
-      <p class="section-subtitle reveal">欢迎交流讨论，期待与你连接</p>
+      <h2 class="section-title">联系我</h2>
 
-      <div class="contact-grid">
-        <!-- GitHub -->
-        <div class="tag-card reveal reveal-d1">
-          <span class="card-pill card-pill--blue">开发平台</span>
-          <h3 class="card-title">GitHub</h3>
-          <p class="card-desc">查看我的开源项目和代码仓库</p>
-          <a href="https://github.com/Wyl-510-www" target="_blank" class="contact-link">访问主页 →</a>
-        </div>
-
-        <!-- 邮箱 -->
-        <div class="tag-card reveal reveal-d2">
-          <span class="card-pill card-pill--yellow">联系方式</span>
-          <h3 class="card-title">电子邮箱</h3>
-          <p class="card-desc">商务合作、技术交流请发送邮件</p>
-          <a href="mailto:504424637@qq.com" class="contact-link">发送邮件 →</a>
-        </div>
-
-        <!-- 小红书 -->
-        <div class="tag-card reveal reveal-d3">
-          <span class="card-pill card-pill--red">社交媒体</span>
-          <h3 class="card-title">小红书</h3>
-          <p class="card-desc">分享生活日常和学习笔记</p>
-          <a href="https://xhslink.cn/o/3dBs2IMNfpl" target="_blank" class="contact-link">关注我 →</a>
-        </div>
+      <div class="contact-email">
+        <span class="email-text">📧 wyl510www@gmail.com</span>
+        <button class="copy-btn" id="copyEmailBtn">复制</button>
       </div>
 
-      <!-- CTA 按钮 -->
-      <div class="cta-wrapper reveal reveal-d4">
-        <a href="mailto:504424637@qq.com" class="cta-button">联系我</a>
-        <a href="index.html" class="cta-button cta-button--outline">返回首页</a>
+      <div class="contact-social">
+        <a href="https://github.com/Wyl-510-www" class="social-link" target="_blank" rel="noopener">
+          🔗 GitHub
+        </a>
       </div>
+
+      <a href="mailto:wyl510www@gmail.com" class="cta-button">联系我</a>
     </div>
   </section>
 
@@ -180,9 +173,7 @@
     </div>
   </footer>
 
-  <!-- 脚本 -->
-  <script type="module" src="scripts/main.js"></script>
-
-  <!-- © ESTHER不二 esthersjw/esther-design-system CC BY-NC 4.0 -->
+  <!-- JavaScript -->
+  <script src="scripts/copy-email.js"></script>
 </body>
 </html>
