@@ -21,15 +21,44 @@
 .notes-header {
   text-align: center;
   margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 星光文字效果 */
+.sparkles-wrap {
+  position: relative;
+  display: inline-block;
+  padding: 12px 24px;
 }
 
 .notes-title {
   font-family: 'Noto Serif SC', serif;
   font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 900;
-  color: var(--ink);
+  color: var(--blue);
   margin-bottom: 1rem;
-  text-shadow: 3px 3px 0 var(--yellow);
+  position: relative;
+  z-index: 1;
+}
+
+.sparkle {
+  position: absolute;
+  pointer-events: none;
+  z-index: 2;
+  animation: sparkle-anim 0.8s ease-in-out infinite;
+}
+
+@keyframes sparkle-anim {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0) rotate(75deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1) rotate(120deg);
+  }
 }
 
 .notes-subtitle {
@@ -64,13 +93,14 @@
 
 .tag-btn:hover {
   background: var(--blue);
-  color: var(--white);
+  color: #FFD646;
   transform: translateY(-2px);
 }
 
 .tag-btn.active {
   background: var(--blue);
-  color: var(--white);
+  color: #FFD646;
+  border-color: var(--blue);
 }
 
 /* ===================================

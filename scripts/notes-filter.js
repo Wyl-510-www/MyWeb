@@ -154,3 +154,41 @@ function updateURL(tag) {
 
 // 页面加载完成后初始化
 document.addEventListener('DOMContentLoaded', init);
+
+/**
+ * 星光文字效果 - 动态生成星光元素
+ */
+function initSparkles() {
+  const sparklesWrap = document.querySelector('.sparkles-wrap');
+  if (!sparklesWrap) return;
+
+  const colors = sparklesWrap.dataset.sparkleColors.split(',');
+  const sparkleCount = 8;
+
+  for (let i = 0; i < sparkleCount; i++) {
+    const sparkle = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    sparkle.classList.add('sparkle');
+    sparkle.setAttribute('width', '20');
+    sparkle.setAttribute('height', '20');
+    sparkle.setAttribute('viewBox', '0 0 20 20');
+
+    const star = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    star.setAttribute('d', 'M10 0 L12 8 L20 10 L12 12 L10 20 L8 12 L0 10 L8 8 Z');
+    star.setAttribute('fill', colors[Math.floor(Math.random() * colors.length)]);
+    sparkle.appendChild(star);
+
+    // 随机位置
+    const randomX = Math.random() * 100;
+    const randomY = Math.random() * 100;
+    sparkle.style.left = `${randomX}%`;
+    sparkle.style.top = `${randomY}%`;
+
+    // 随机延迟
+    sparkle.style.animationDelay = `${Math.random() * 0.8}s`;
+
+    sparklesWrap.appendChild(sparkle);
+  }
+}
+
+// 初始化星光效果
+document.addEventListener('DOMContentLoaded', initSparkles);
