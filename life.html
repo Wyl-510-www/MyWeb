@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>生活记录 - 510 的个人网站</title>
+
+  <!-- Google Fonts 预连接优化 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- 引入字体 -->
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,900;1,9..144,400&family=Caveat:wght@400;700&family=Noto+Serif+SC:wght@700;900&family=Noto+Sans+SC:wght@400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- 样式表 -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="components/nav/nav.css">
+  <link rel="stylesheet" href="components/footer/footer.css">
+  <link rel="stylesheet" href="css/life.css">
+</head>
+<body>
+
+  <!-- 导航栏 -->
+  <nav>
+    <span class="nav-logo">MyWeb</span>
+    <div class="nav-links">
+      <a href="portfolio.html">作品集</a>
+      <a href="notes.html">学习笔记</a>
+      <a href="life.html" class="active">生活记录</a>
+      <a href="about.html">关于我</a>
+    </div>
+  </nav>
+
+  <!-- 生活记录页面 -->
+  <main class="life-page">
+    <!-- 页面标题 -->
+    <header class="life-header">
+      <h1>生活记录</h1>
+      <p style="font-family: 'Noto Sans SC', sans-serif; color: var(--text-medium); margin-top: 0.5rem;">记录生活的点滴，捕捉美好的瞬间</p>
+    </header>
+
+    <!-- 标签筛选区域 -->
+    <div class="tags-filter">
+      <!-- 动态生成标签按钮 -->
+    </div>
+
+    <!-- 时间线容器 -->
+    <div class="timeline">
+      <!-- 动态生成记录卡片 -->
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <h2 class="footer-title">联系我</h2>
+      <p class="footer-subtitle">欢迎交流讨论，期待与你连接</p>
+
+      <div class="numgrid">
+        <div class="numgrid-card" data-num="01">
+          <div class="numgrid-icon">📧</div>
+          <h4>邮箱</h4>
+          <p>504424637@qq.com</p>
+        </div>
+        <div class="numgrid-card" data-num="02">
+          <div class="numgrid-icon">📱</div>
+          <h4>小红书</h4>
+          <a href="https://xhslink.cn/o/3dBs2IMNfpl" target="_blank" class="numgrid-link">@510的小红书</a>
+        </div>
+      </div>
+
+      <p class="footer-credits">MyWeb © 2026 · Powered by Esther Design System</p>
+    </div>
+  </footer>
+
+  <!-- 标签筛选脚本 -->
+  <script src="scripts/life-filter.js"></script>
+
+  <!-- © ESTHER不二 esthersjw/esther-design-system CC BY-NC 4.0 -->
+</body>
+</html>

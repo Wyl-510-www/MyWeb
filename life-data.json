@@ -1,0 +1,64 @@
+[
+  {
+    "slug": "2026-09-restaurant",
+    "title": "兴乙酒家打卡",
+    "date": "2026-09-29T00:00:00.000Z",
+    "tags": [
+      "美食",
+      "日常",
+      "约会"
+    ],
+    "description": "和最爱的人一起吃饭，看着面前的花束和美食，这就是幸福的模样。",
+    "images": [
+      "../assets/images/life/2026-09-restaurant/01-large.jpg",
+      "../assets/images/life/2026-09-restaurant/02-large.jpg",
+      "../assets/images/life/2026-09-restaurant/03-large.jpg"
+    ],
+    "readingTime": "2 分钟"
+  },
+  {
+    "slug": "2026-09-test-travel",
+    "title": "秋日海边散步",
+    "date": "2026-09-28T00:00:00.000Z",
+    "tags": [
+      "旅行",
+      "摄影",
+      "日常"
+    ],
+    "description": "秋天的海边，风很大，心情很好。记录这个美好的周末。",
+    "images": [
+      "../assets/images/life/test-travel/beach-01-large.jpg",
+      "../assets/images/life/test-travel/beach-02-large.jpg",
+      "../assets/images/life/test-travel/beach-03-large.jpg"
+    ],
+    "readingTime": "3 分钟"
+  },
+  {
+    "slug": "2026-09-test-reading",
+    "title": "读完《人间值得》",
+    "date": "2026-09-25T00:00:00.000Z",
+    "tags": [
+      "读书",
+      "思考"
+    ],
+    "description": "中村恒子奶奶的人生智慧，让我重新思考了很多事情。",
+    "images": [],
+    "readingTime": "4 分钟"
+  },
+  {
+    "slug": "2026-09-test-food",
+    "title": "周末烘焙记录",
+    "date": "2026-09-22T00:00:00.000Z",
+    "tags": [
+      "美食",
+      "日常",
+      "手作"
+    ],
+    "description": "第一次尝试做曲奇饼干，虽然卖相不好，但味道还不错！",
+    "images": [
+      "../assets/images/life/test-food/cookie-01-large.jpg",
+      "../assets/images/life/test-food/cookie-02-large.jpg"
+    ],
+    "readingTime": "2 分钟"
+  }
+]
