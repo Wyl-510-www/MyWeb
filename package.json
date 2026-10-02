@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:notes": "node scripts/build-notes.js",
+    "build:life": "node scripts/build-life.js",
+    "build": "npm run build:notes && npm run build:life"
   },
   "private": true,
   "devDependencies": {
