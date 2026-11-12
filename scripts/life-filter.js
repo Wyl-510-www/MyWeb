@@ -151,7 +151,7 @@
     // 封面图片
     if (record.images && record.images.length > 0) {
       const img = document.createElement('img');
-      img.src = record.images[0];
+      img.src = new URL(record.images[0], new URL('life/', window.location.href)).href;
       img.alt = record.title;
       img.className = 'life-card-image';
       img.loading = 'lazy';
@@ -199,6 +199,9 @@
    * 格式化日期
    */
   function formatDate(dateStr) {
+    if (/^\d{4}-\d{2}$/.test(dateStr)) {
+      return `${dateStr.slice(0, 4)}年${Number(dateStr.slice(5))}月`;
+    }
     const date = new Date(dateStr);
     const month = date.getMonth() + 1;
     const day = date.getDate();

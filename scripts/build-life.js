@@ -69,7 +69,9 @@ async function generateLifePages(records) {
   for (const record of records) {
     // 格式化日期为 YYYY-MM-DD
     const date = new Date(record.date);
-    const formattedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+    const formattedDate = /^\d{4}-\d{2}$/.test(record.date)
+      ? `${record.date.slice(0, 4)}年${Number(record.date.slice(5))}月`
+      : `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
 
     // 生成图片画廊 HTML
     let imagesHtml = '';

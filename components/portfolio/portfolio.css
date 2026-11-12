@@ -109,7 +109,7 @@
 /* 黄色标签 */
 .tag-yellow {
   background-color: rgba(255, 214, 70, 0.2);
-  color: #C4A000;
+  color: #756000;
   border: 1px solid rgba(255, 214, 70, 0.3);
 }
 
@@ -121,7 +121,7 @@
 /* 红色标签 */
 .tag-red {
   background-color: rgba(226, 85, 85, 0.1);
-  color: var(--red);
+  color: #B33232;
   border: 1px solid rgba(226, 85, 85, 0.2);
 }
 
@@ -137,10 +137,14 @@
   color: var(--ink-light);
   line-height: 1.7;
   margin-bottom: 24px;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+}
+
+/* 项目状态 */
+.card-status {
+  font-size: 0.875rem;
+  color: var(--ink-light);
+  line-height: 1.6;
+  margin-bottom: 16px;
 }
 
 /* 项目链接 */

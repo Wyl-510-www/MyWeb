@@ -11,7 +11,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <!-- 引入字体 -->
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,900;1,9..144,400&family=Caveat:wght@400;700&family=Noto+Serif+SC:wght@700;900&family=Noto+Sans+SC:wght@400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,900;1,9..144,400&family=Caveat:wght@400;700&family=Noto+Serif+SC:wght@700;900&family=Noto+Sans+SC:wght@400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,900;1,9..144,400&family=Caveat:wght@400;700&family=Noto+Serif+SC:wght@700;900&family=Noto+Sans+SC:wght@400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet"></noscript>
 
   <!-- 样式表 -->
   <link rel="stylesheet" href="css/variables.css">
@@ -20,6 +21,7 @@
   <link rel="stylesheet" href="components/nav/nav.css">
   <link rel="stylesheet" href="components/footer/footer.css">
   <link rel="stylesheet" href="components/portfolio/portfolio.css">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 </head>
 <body>
 
@@ -33,6 +35,8 @@
       <a href="about.html">关于我</a>
     </div>
   </nav>
+
+  <main>
 
   <!-- 页面标题区 -->
   <section class="section">
@@ -64,54 +68,44 @@
           <a href="https://github.com/Wyl-510-www/MyWeb" target="_blank" class="card-link">查看项目 →</a>
         </div>
 
-        <!-- 项目 2：前端学习笔记系统 -->
+        <!-- 项目 2：豆绘小屋 -->
         <div class="portfolio-card reveal reveal-d2">
-          <h2 class="card-title">前端学习笔记系统</h2>
+          <h2 class="card-title">豆绘小屋 · 拼豆图纸生成器</h2>
           <div class="card-tags">
-            <span class="tag tag-yellow">Vue.js</span>
-            <span class="tag tag-yellow">Markdown</span>
-            <span class="tag tag-yellow">Vite</span>
+            <span class="tag tag-yellow">微信小程序</span>
+            <span class="tag tag-yellow">JavaScript</span>
+            <span class="tag tag-yellow">微信云开发</span>
+            <span class="tag tag-yellow">Canvas</span>
           </div>
           <p class="card-desc">
-            正在开发中的学习笔记管理系统，支持 Markdown 编辑、标签分类和全文搜索。
-            使用 Vue 3 Composition API 和 TypeScript 构建。
+            把喜欢的照片变成拼豆图纸，通过 Lab 色彩匹配转换为色号网格。
+            支持单格改色、全图换色、用豆数量统计，以及 PNG 和矢量 PDF 导出，让图像创作走向手工制作。
           </p>
-          <a href="#" class="card-link card-link--disabled">开发中...</a>
+          <p class="card-status">源码展示 · 运行需配置云环境与色卡数据</p>
+          <a href="https://github.com/Wyl-510-www/mard-bead-generator" target="_blank" rel="noopener noreferrer" class="card-link">查看项目 →</a>
         </div>
 
-        <!-- 项目 3：待添加项目 -->
+        <!-- 项目 3：Desktop Lena -->
         <div class="portfolio-card reveal reveal-d3">
-          <h2 class="card-title">React 组件库</h2>
+          <h2 class="card-title">Desktop Lena · 桌面宠物</h2>
           <div class="card-tags">
-            <span class="tag tag-red">React</span>
-            <span class="tag tag-red">TypeScript</span>
-            <span class="tag tag-red">Storybook</span>
+            <span class="tag tag-red">Python</span>
+            <span class="tag tag-red">PySide6</span>
+            <span class="tag tag-red">Windows</span>
           </div>
           <p class="card-desc">
-            计划中的 React 组件库项目，基于 Esther Design System 设计规范，
-            提供可复用的 UI 组件和完整的文档示例。
+            以《86—不存在的战区》的蕾娜为灵感，探索有性格的桌面陪伴。
+            使用透明悬浮窗口与精灵动画，结合点击拖拽、好感度变化、气泡对话和待办提醒，让角色融入日常桌面。
           </p>
-          <a href="#" class="card-link card-link--disabled">筹备中...</a>
-        </div>
-
-        <!-- 项目 4：全栈应用 -->
-        <div class="portfolio-card reveal reveal-d4">
-          <h2 class="card-title">全栈博客应用</h2>
-          <div class="card-tags">
-            <span class="tag tag-blue">Node.js</span>
-            <span class="tag tag-yellow">Express</span>
-            <span class="tag tag-red">MongoDB</span>
-          </div>
-          <p class="card-desc">
-            学习计划中的全栈项目，包含用户认证、文章发布、评论系统等功能。
-            前端使用 React，后端使用 Node.js + Express。
-          </p>
-          <a href="#" class="card-link card-link--disabled">计划中...</a>
+          <p class="card-status">持续完善中 · 正在打磨角色表现与交互体验</p>
+          <a href="https://github.com/Wyl-510-www/desktop-lena" target="_blank" rel="noopener noreferrer" class="card-link">查看源码与进展 →</a>
         </div>
 
       </div>
     </div>
   </section>
+
+  </main>
 
   <!-- Footer -->
   <footer class="footer">

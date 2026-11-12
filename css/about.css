@@ -225,12 +225,12 @@
 
 .skill-pill--yellow {
   background: rgba(255, 214, 70, 0.25);
-  color: #9a8100;
+  color: #756000;
 }
 
 .skill-pill--red {
   background: rgba(226, 85, 85, 0.1);
-  color: var(--red);
+  color: #B33232;
 }
 
 /* 联系方式区域 */

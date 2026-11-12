@@ -1,37 +1,17 @@
 [
   {
-    "slug": "2026-09-restaurant",
-    "title": "兴乙酒家打卡",
-    "date": "2026-09-29T00:00:00.000Z",
+    "slug": "birthday-23",
+    "title": "23 岁，生日快乐",
+    "date": "2026-11",
     "tags": [
-      "美食",
-      "日常",
-      "约会"
-    ],
-    "description": "和最爱的人一起吃饭，看着面前的花束和美食，这就是幸福的模样。",
-    "images": [
-      "../assets/images/life/2026-09-restaurant/01-large.jpg",
-      "../assets/images/life/2026-09-restaurant/02-large.jpg",
-      "../assets/images/life/2026-09-restaurant/03-large.jpg"
-    ],
-    "readingTime": "2 分钟"
-  },
-  {
-    "slug": "2026-09-test-travel",
-    "title": "秋日海边散步",
-    "date": "2026-09-28T00:00:00.000Z",
-    "tags": [
-      "旅行",
-      "摄影",
+      "生日",
       "日常"
     ],
-    "description": "秋天的海边，风很大，心情很好。记录这个美好的周末。",
+    "description": "一块水果蛋糕，一对金色数字蜡烛，留住 23 岁的生日画面。",
     "images": [
-      "../assets/images/life/test-travel/beach-01-large.jpg",
-      "../assets/images/life/test-travel/beach-02-large.jpg",
-      "../assets/images/life/test-travel/beach-03-large.jpg"
+      "../assets/images/life/birthday-23/photo.webp"
     ],
-    "readingTime": "3 分钟"
+    "readingTime": "1 分钟"
   },
   {
     "slug": "2026-09-test-reading",
@@ -46,19 +26,33 @@
     "readingTime": "4 分钟"
   },
   {
-    "slug": "2026-09-test-food",
-    "title": "周末烘焙记录",
-    "date": "2026-09-22T00:00:00.000Z",
+    "slug": "tianjin-yunnan-football",
+    "title": "天津对云南：足球现场记录",
+    "date": "2026-08",
+    "tags": [
+      "足球",
+      "天津",
+      "现场"
+    ],
+    "description": "天津对云南的比赛现场，绿茵场、明亮的灯光和铺满看台的球迷。",
+    "images": [
+      "../assets/images/life/tianjin-yunnan-football/photo.webp"
+    ],
+    "readingTime": "1 分钟"
+  },
+  {
+    "slug": "2026-09-restaurant",
+    "title": "天津兴乙酒家：南洋菜打卡",
+    "date": "2026-06",
     "tags": [
       "美食",
-      "日常",
-      "手作"
+      "天津",
+      "南洋菜"
     ],
-    "description": "第一次尝试做曲奇饼干，虽然卖相不好，但味道还不错！",
+    "description": "暖色灯光下的一桌南洋菜，记录海鲜、配料小碟和甜品的丰富搭配。",
     "images": [
-      "../assets/images/life/test-food/cookie-01-large.jpg",
-      "../assets/images/life/test-food/cookie-02-large.jpg"
+      "../assets/images/life/xingyi-food/photo.webp"
     ],
-    "readingTime": "2 分钟"
+    "readingTime": "1 分钟"
   }
 ]

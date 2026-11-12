@@ -11,7 +11,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <!-- 引入字体 -->
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,900;1,9..144,400&family=Caveat:wght@400;700&family=Noto+Serif+SC:wght@700;900&family=Noto+Sans+SC:wght@400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,900;1,9..144,400&family=Caveat:wght@400;700&family=Noto+Serif+SC:wght@700;900&family=Noto+Sans+SC:wght@400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,900;1,9..144,400&family=Caveat:wght@400;700&family=Noto+Serif+SC:wght@700;900&family=Noto+Sans+SC:wght@400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet"></noscript>
 
   <!-- 样式表 -->
   <link rel="stylesheet" href="css/variables.css">
@@ -20,6 +21,7 @@
   <link rel="stylesheet" href="components/nav/nav.css">
   <link rel="stylesheet" href="components/footer/footer.css">
   <link rel="stylesheet" href="css/about.css">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 </head>
 <body>
 
@@ -34,9 +36,11 @@
     </div>
   </nav>
 
+  <main>
+
   <!-- 头部区域 -->
   <section class="about-hero">
-    <img src="assets/avatar.jpg" alt="头像" class="about-avatar">
+    <img src="assets/avatar.webp" alt="头像" width="324" height="324" fetchpriority="high" class="about-avatar">
     <h1 class="about-title">510</h1>
     <p class="about-subtitle">前端开发者 · 终身学习者</p>
   </section>
@@ -165,6 +169,8 @@
       <a href="mailto:wyl510www@gmail.com" class="cta-button">联系我</a>
     </div>
   </section>
+
+  </main>
 
   <!-- Footer -->
   <footer class="footer">
